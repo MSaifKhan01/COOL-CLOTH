@@ -1,0 +1,73 @@
+/* form */
+#SignUp{
+    position: relative;
+    
+    width: 400px;
+    height: 500px;
+    margin-top: 20px;
+    margin-left: 500px;
+}
+#register{
+    background-color: black;
+    color: white;
+   text-align: center;
+   width: 250px;
+   height: 50px;
+   padding-top: 5px;
+   border-radius: 5px;
+   font-size: larger;
+   
+}
+#SignUp>input{
+    text-align: center;
+    width: 250px;
+    margin-top: 10px;
+    height: 20px;
+    border-radius: 3px;
+    box-shadow: rgba(236, 228, 228, 0.35) 0px 5px 15px;
+
+}
+
+#LogIn{
+   margin-top: 10px;
+   text-align: center;
+   width: 250px;
+   height: 30px;
+   padding-top: 5px;
+   border-radius: 5px;
+   border:2px solid black; 
+}
+#Facebook{
+    margin-top: 10px;
+    text-align: center;
+    width: 250px;
+    height: 35px;
+    padding-top: 5px;
+    border-radius: 5px;
+    border:2px solid black; 
+    background-color: #3B5998;
+    color: white;
+    padding-top: 10px;
+ }
+ #Google{
+    margin-top: 10px;
+    text-align: center;
+    width: 250px;
+    height: 30px;
+    padding-top: 5px;
+    border-radius: 5px;
+    border:2px solid black;
+    background-color: #DD4B39; 
+    color: aliceblue;
+    padding-top: 10px;
+
+ }
+ /* #con{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 50%;
+    margin: auto;
+ } */
+
+
+
+/* form */

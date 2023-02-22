@@ -1,0 +1,63 @@
+#con{
+    display: flex;
+    gap: 20px;
+    position: relative;
+    margin-left: 400px;
+}
+#Facebook{
+    margin-top: 10px;
+    text-align: center;
+    width: 250px;
+    height: 35px;
+    padding-top: 5px;
+    border-radius: 5px;
+    border:2px solid black; 
+    background-color: #3B5998;
+    color: white;
+    padding-top: 10px;
+}
+ #Google{
+   
+    margin-top: 10px;
+    text-align: center;
+    width: 250px;
+    height: 30px;
+    padding-top: 5px;
+    border-radius: 5px;
+    border:2px solid black;
+    background-color: #DD4B39; 
+    color: aliceblue;
+    padding-top: 10px;
+    
+
+ }
+ #SignIn{
+    margin-top: 10px;
+    text-align: center;
+    width: 250px;
+    height: 30px;
+    padding-top: 5px;
+    border-radius: 5px;
+    border:2px solid black; 
+    color: white;
+    background-color: black;
+}
+#form input{
+  text-align: center;
+  width: 250px;
+  margin-top: 10px;
+  height: 20px;
+  border-radius: 3px;
+  
+}
+#New>button{
+    background-color: black;
+    color: white;
+    width: 200px;
+    border-radius: 3px;
+    height: 30px;
+
+}
+#home{
+    text-align: center;
+}
