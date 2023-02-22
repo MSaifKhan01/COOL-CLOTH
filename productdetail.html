@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>PRODUCTS DETAILS</title>
+    <style>
+        
+        *{
+            font-family: "Merriweather Sans", sans-serif;
+        }
+        li:hover{
+          pointer-events: fill;
+        }
+        @media  (min-width:822px) {
+            .dropdownicon{
+                display: none !important;
+              }
+          
+        }
+        @media  (max-width:599px) {
+         
+            #container{
+                display: grid;
+                 grid-template-columns: repeat(2,1fr) !important;
+                 gap: 15px;
+                 margin: auto;
+               
+           
+            }
+            .cat{
+                display: none;
+            }
+            #topnav{
+                display: none;
+            } 
+            #wislist,#cart,#account{
+                display: none;
+            }
+            .secondlastnav{
+                box-sizing: border-box !important;
+            }
+           
+        }
+        
+        @media (max-width:822px) and (min-width:600px) {
+            #topnav{
+                display: none;
+            } 
+            #container{
+                display: grid;
+                 grid-template-columns: repeat(3,1fr) !important;
+                 gap: 15px;
+                 margin: auto;
+               
+           
+            }
+            .cat{
+                display: none;
+            }
+           
+          
+          
+        }
+    
+        @media (max-width: 20em) {
+            #logo{
+                display: none;
+            }
+            /* .dropdownicon{
+              display: none;
+            } */
+            /* #container{
+                display: grid;
+                grid-template-columns: repeat(1,1fr);
+                gap: 15px;
+                margin: 10px; 
+            } */
+          
+        }
+
+        @media (max-width: 30em) {
+          
+            .cat{
+                display: none;
+            }
+            
+            h1{
+                display: none;
+            }
+            #container{
+                display: grid;
+                 grid-template-columns: repeat(1,1fr) !important;
+                 gap: 15px;
+                 margin: auto;
+                 margin-left: 10px !important;
+               
+           
+            }
+/* 
+            #container{
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap: 15px;
+                margin: 10px; 
+            }
+            */
+        }
+        @media  (max-width:822px) {
+ 
+            .footer1{
+          
+              display: grid;
+              grid-template-columns: repeat(2,1fr) !important;
+              margin-top: 9px;
+              width: 100%;
+              list-style: none;
+          }
+          .footer2{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            margin: 10px;
+        }
+        .footer2 div{
+            display: flex;
+            margin: auto;
+        }
+
+    }
+    *:after, :before {
+    border: 0 solid #e5e7eb;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: rgb(229, 231, 235);
+    border-right-color: rgb(229, 231, 235);
+    border-bottom-color: rgb(229, 231, 235);
+    border-left-color: rgb(229, 231, 235);
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    box-sizing: border-box;
+}
+body {
+  
+    background-color: #ffffff;
+}
+body {
+    
+    scroll-behavior: smooth;
+}
+:root {
+    --logo-width-desktop: 120px;
+    --logo-width-mobile: 80px;
+    --logo-width-sticky: 120px;
+}
+
+:root {
+    --base-line-height: 20;
+    --color-primary: #000000;
+    --plyr-color-main: #000000;
+    --color-primary-darker: #333333;
+    --color-body-text: #000000;
+    --color-heading-text: #000000;
+    --color-sub-text: #666666;
+    --color-text-link: #000000;
+    --color-text-link-hover: #999999;
+    --color-btn-bg: #000000;
+    --color-btn-bg-hover: #000000;
+    --color-btn-text: #ffffff;
+    --color-btn-text-hover: #ffffff;
+    --color-btn-secondary-border: #000000;
+    --color-btn-secondary-text: #000000;
+    --btn-letter-spacing: 0px;
+    --btn-border-radius: 5px;
+    --btn-border-width: 1px;
+    --btn-line-height: 23px;
+    --product-title-color: #000000;
+    --product-sale-price-color: #666666;
+    --product-regular-price-color: #000000;
+    --product-type-color: #666666;
+    --product-desc-color: #666666;
+    --color-topbar-background: #ffffff;
+    --color-topbar-text: #000000;
+    --color-menu-background: #000000;
+    --color-menu-text: #f8f8f8;
+    --color-border: #dedede;
+    --color-footer-text: #000000;
+    --color-footer-subtext: #666666;
+    --color-footer-background: #f5f5f5;
+    --color-footer-link: #666666;
+    --color-footer-link-hover: #000000;
+    --color-footer-background-mobile: #F5F5F5;
+    --color-footer-bottom-text: #000;
+    --color-footer-bottom-background: #f5f5f5;
+    --color-footer-bottom-background-mobile: #F5F5F5;
+    --color-header-text: #000000;
+    --color-header-transparent-text: #000000;
+    --color-main-background: #ffffff;
+    --color-field-background: #ffffff;
+    --color-header-background: #ffffff;
+    --color-cart-wishlist-count: #ffffff;
+    --bg-cart-wishlist-count: #da3f3f;
+    --swatch-item-background-default: #f7f8fa;
+    --text-gray-400: #777777;
+    --text-gray-9b: #9b9b9b;
+    --text-black: #000000;
+    --text-white: #ffffff;
+    --bg-gray-400: #f7f8fa;
+    --bg-black: #000000;
+    --rounded-full: 9999px;
+    --border-color-1: #eeeeee;
+    --border-color-2: #b2b2b2;
+    --border-color-3: #d2d2d2;
+    --border-color-4: #737373;
+    --color-secondary: #666666;
+    --color-success: #3a8735;
+    --color-warning: #ff706b;
+    --color-info: #959595;
+    --color-disabled: #cecece;
+    --bg-disabled: #f7f7f7;
+    --bg-hover: #737373;
+    --bg-color-tooltip: #000000;
+    --text-color-tooltip: #ffffff;
+    --color-image-overlay: #000000;
+    --opacity-image-overlay: 0.2;
+    --theme-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.07);
+    --arrow-select-box: url(//cdn.shopify.com/s/files/1/0677/1464/6315/t/10/assets/ar-down.svg?v=9272826…);
+    --font-base-size: 14;
+    --font-btn-size: 14px;
+    --font-btn-weight: 500;
+    --font-h1-desktop: 54;
+    --font-h1-mobile: 50;
+    --font-h2-desktop: 42;
+    --font-h2-mobile: 37;
+    --font-h3-desktop: 31;
+    --font-h3-mobile: 28;
+    --font-h4-desktop: 27;
+    --font-h4-mobile: 24;
+    --font-h5-desktop: 23;
+    --font-h5-mobile: 20;
+    --font-h6-desktop: 21;
+    --font-h6-mobile: 19;
+    --arrow-down-url: url(//cdn.shopify.com/s/files/1/0677/1464/6315/t/10/assets/arrow-down.svg?v=1575524…);
+    --arrow-down-white-url: url(//cdn.shopify.com/s/files/1/0677/1464/6315/t/10/assets/arrow-down-white.svg?v=7053573…);
+    --product-title-line-clamp: unset;
+    --spacing-sections-desktop: 100px;
+    --spacing-sections-tablet: 75px;
+    --spacing-sections-mobile: 50px;
+}
+.top{
+            display: flex;
+            justify-content: space-between;
+            box-shadow: rgba(255, 255, 255, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            /* width: 100% !important; */
+            box-sizing: border-box !important ;
+            text-align: center;
+            padding-top: 10px;
+            margin: 10px;
+        }
+        li>svg{
+    width: 15px;
+    
+        }
+        .dropdown>svg{
+            width: 15px;  
+            text-align: center; 
+            /* display: block; */
+    vertical-align: middle;
+  
+
+        }
+        
+        .socialmedia{
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+           vertical-align: middle;
+           
+            list-style: none;
+            text-align: center;
+        }
+        .facebook{
+            width: 10px;
+        }
+        
+        .socialmedia li,p{
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+            list-style: none;
+            text-align: center;
+        }
+        span{
+            margin-left: 5px;
+        }
+        .secondlastnav>svg{
+            width: 5%;
+            
+        }
+        .secondlastnav li{
+            list-style: none;
+        }
+       
+        #downnav>.down{
+            
+         box-sizing: border-box;
+        }
+        .down li{
+            list-style: none;
+            font-size: 15px;
+            font-weight: 600;
+            padding-left: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #downnav{
+           
+            margin: 10px;
+        }
+        .down{
+           
+            box-sizing:border-box !important;
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        
+        }
+        .down li{
+            display: flex;
+        }
+        .downright,.down svg{
+            margin-right: 20px;
+           
+        }
+       .downright svg{
+        width: 20px;
+       }
+       .btn{
+        background-color:#fff;
+        color: black;
+        border: #fff;
+        margin-top: 10px;
+       }
+       .btn:hover{
+        background-color: #fff;
+        color: black;
+       }
+       .dropdown-item{
+        display: flex;
+        justify-content: space-between;
+       }
+      .searchbarclose{
+        visibility: hidden;
+      }
+      /* .searchbaropen{
+        visibility: visible;
+        width: 500px;
+      } */
+     
+       a{
+     
+       text-decoration: none;
+       color: black; 
+       text-align: center;
+       } 
+     
+       /* #container{
+        box-sizing: border-box;
+
+       } */
+      
+       /* footer */
+       #leftcont{
+        width: 50%;
+        border: 1px solid;
+       
+       }
+       #img{
+        object-fit: cover;
+        width: 100%;
+       }
+       #rightcont{
+        width: 50%;
+        border: 1px solid;
+        
+       }
+       #parent{
+        display: flex;
+        margin: 10px;
+       }
+
+    </style>
+</head>
+<body>
+
+    <!-- nav section -->
+    <div id="topnav">
+        <nav class="top">
+           <div>
+            <ul class="socialmedia">
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg><span>682.8k Followers</span></li>
+                <li><svg class="facebook" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg><span>1.8M Followers</span></li>
+                
+            </ul>
+           </div>
+           <div><p>Open doors to a world of fashion | Young and fresh</p></div>
+           <div><ul>
+            <li style="font-size: 15px; margin-right: 50px; list-style: none;">English <span class="dropdown"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"></path></svg></span></li>
+           </ul>
+        </div> 
+        </nav>
+    </div>
+    <div id="downnav">
+        <nav class="down">
+            <div class="dropdownicon">
+                <div class="btn btn-secondary dropdown"data-bs-toggle="dropdown">
+                    <svg class="w-[22px] h-[22px]" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M442 114H6a6 6 0 0 1-6-6V84a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6z"></path>
+                      </svg>
+                </div>
+                <ul class="dropdown-menu">
+                  <li>Men<a class="dropdown-item" href="#"><span class="dropdown"><svg fill="currentColor" style="width:10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"></path></svg></span></a></li>
+                  <li>women<a class="dropdown-item" href="#"><span class="dropdown"><svg fill="currentColor" style="width:10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"></path></svg></span></a></li>
+                  <li>Artist Collab<a class="dropdown-item" href="#"><span class="dropdown"><svg fill="currentColor" style="width:10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"></path></svg></span></a></li>
+                </ul>
+              </div>
+            <div class="cat">
+               
+                <ul style="display: flex; justify-content: space-between; text-align: center; margin-top: 10px;  ">
+                    <li>Men <span class="dropdown"><svg fill="currentColor" style="width:11px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"></path></svg></span></li>
+                    <li>women <span class="dropdown"><svg fill="currentColor" style="width:10px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"></path></svg></span></li>
+                    <li>Artist Collab <span class="dropdown"><svg fill="currentColor" style="width:10px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"></path></svg></span></li>
+                </ul>
+            </div>
+            <div id="logo">
+                <img style="width: 100px; margin-top: 20px;" src="./IMG-20230221-WA0002.jpg" alt="logo">
+            
+              </div>
+            <div class="secondlastnav" style="margin-top: 20px;">
+                <div class="downright">
+                   
+                    <ul style="display: flex; justify-content: space-between;"> <span id="searchbar" class="searchbarclose"><input type="search" placeholder="Search By Name"></span>
+                        <li id="search" class="search"><svg class="w-[18px] h-[18px]" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path>
+                          </svg></li>
+                        <li  id="account"><svg fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path></svg></li>
+                        <li  id="wislist">
+                            <svg class="w-[20px] h-[20px]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg>
+                          
+                        </span></li>
+                        <li  id="cart"><svg class="w-[20px] h-[20px]" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z"></path></svg></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- middle <section></section> -->
+    <div id="parent">
+        <div id="leftcont">
+<!-- append here pic -->
+        </div>
+        <div id="rightcont">
+
+        </div>
+    </div>
+    
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script>
+    let leftcont=document.getElementById("leftcont")
+    let rightcont=document.getElementById("rightcont")
+let localStorageid=JSON.parse(localStorage.getItem("showid"))
+// console.log("id",localStorageid)
+let url=`https://upset-red-outfit.cyclic.app/Products/${localStorageid}`
+fetchdata(url)
+function fetchdata(url) {
+    async function fetchdata(){
+        let res= await fetch(url)
+        let data=await res.json()
+        console.log(data)
+        
+       let readydata=[data].map((acc,item)=>{
+            return{
+                id:acc.id,
+                title:acc.title,
+                image:acc.featured_image,
+                price:acc.price,
+                catagory:acc.tags[1]||acc.tags[0],
+                mrp:acc.price_max,
+                bander:acc.vendor
+
+
+            }
+        })
+        let womendata=readydata.filter((women,i)=>{
+            if((women.catagory.includes("women")||women.catagory.includes("Women")||women.catagory.includes("WOMEN"))){
+                return true
+            }
+            if(women.bander=="Koovs"){
+                return women.bander="COOL CLOTH"
+            }
+           
+        })
+        let womendata1=readydata.filter((women,i)=>{
+            
+            if(women.bander=="Koovs"){
+                return women.bander="COOL CLOTH"
+            }
+           
+        })
+        // console.log(womendata)
+        leftdisplay(womendata)
+        rightdisplay(womendata)
+        console.log(womendata1)
+    
+    }
+    
+    fetchdata()
+}
+function leftdisplay(data){
+    leftcont.innerHTML=""
+    data.forEach((product) => {
+        
+        let div=document.createElement("div")
+        let img=document.createElement("img")
+        img.setAttribute("src",product.image)
+        img.setAttribute("id","img")
+        div.append(img)
+        leftcont.append(div)
+    });
+
+}
+function rightdisplay(data){
+    rightcont.innerHTML=""
+    data.forEach((product) => {
+        
+        let div=document.createElement("div")
+        let div1=document.createElement("div")
+        let div2=document.createElement("div")
+        let div3=document.createElement("div")
+        let div4=document.createElement("div")
+        let div5=document.createElement("div")
+        let name=document.createElement("h4")
+        let price=document.createElement("h6")
+        let text=document.createElement("p")
+        text.innerText=`Tax Included`
+        let text2=document.createElement("p")
+        text2.innerText=`30 People Views Right Now`
+        price.innerText=`RS. `+product.price
+        name.innerText=product.title
+       div1.append(name)
+       div2.append(price)
+       div3.append(text)
+       div4.append(text4)
+        div.append(div1,div2,div3,div4,div5)
+        rightcont.append(div)
+    });
+
+}
+</script>
+</html>
