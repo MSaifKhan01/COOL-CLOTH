@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add product Admin page</title>
+
+
+<style>
+
+
+#adminform{
+  width: 50%;
+  margin:2rem auto;
+  padding: 2rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+}
+#adminform  h3{
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+#adminform input{
+  width: 60%;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+#adminform button{
+  background-color: black;
+  color: white;
+  border: 0px;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 5px 10px;
+  width: 60%;
+}
+
+#adminform button:hover{
+  background-color: #003380;
+}
+
+</style>
+
+
+
+
+</head>
+<body>
+    
+
+
+
+    <div id="adminform">
+        <h2>Add New Products On Website</h2>
+           <form action="">
+              <input type="text" placeholder="Enter The Image Address" id="productimage"><br>
+             <input type="text" placeholder="Enter The Product Title" id="producttitle"><br>
+              <input type="number" placeholder="Enter The Category " id="productcategory"><br>
+              <input type="number" placeholder="Enter The Price" id="productmrp"><br>
+              <button id="publishdata">Publish Product On Website</button>
+           </form>
+        
+        </div>
+
+
+
+<script>
+
+
+
+let updateproductimg=document.getElementById("productimage")
+let updateproductname=document.getElementById("producttitle")
+let updateproductcategory=document.getElementById("productcategory")
+let updateproductprice=document.getElementById("productmrp")
+
+
+
+
+let publishbtn=document.getElementById("publishdata");
+
+
+
+</script>
+
+
+
+</body>
+</html>
