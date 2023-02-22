@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Explora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+    font-family: 'Sen', sans-serif; 
+}
+
+/* top-nav-banner */
+.top-banner{
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    padding:7px 0px;
+    border-bottom: 1px solid rgb(227, 215, 215);
+}
+.banner-box{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    font-size: 14px; 
+}
+.banner-box p{
+    margin:0;
+    margin-right: 25%;
+}
+#lang{
+    display:flex;
+    align-items: center;
+}
+#lang a{
+    text-decoration: none;
+    color:black
+}
+
+.media {
+   display:flex;
+   width:22%;
+   justify-content: space-evenly;
+}
+.media>div{
+    display:flex;
+    align-items: center;
+    padding:5px
+}
+.media>div a{
+    padding-left: 5px;
+    text-decoration: none;
+    color:black
+}
+.media>div> img{
+    width:12%;
+}
+/* top-nav-banner */
+.main-box{
+    width:95% ;
+    margin:auto;
+}
+/* main-nav */
+
+.navbar-light .navbar-nav .nav-link{
+    color:black;
+}
+.navLinks{
+   
+    width:20%
+}
+.container-fluid{
+    margin:0;
+    align-items: center;
+    display: flex;
+}
+.logo{
+    display:flex;
+}
+.logo h1{
+    margin-left: 5px;
+    font-weight:bold;
+    font-family: 'Dancing Script', cursive;
+}
+
+.nav-content, .nav-icons{
+    display:flex;
+    justify-content: space-between;
+}
+.nav-icons{
+    /* border:1px solid; */
+    width:30%;
+    justify-content:flex-end;
+    padding:10px;
+}
+.nav-icons>img{
+    padding-left:20px;
+}
+.search{
+    border:2px solid rgb(147 147 149);
+    display:flex;
+    border-radius:5px;
+    padding:0px 5px;
+    width:70%;
+    justify-content: space-between;
+} 
+
+#search-box{
+    border:none;
+    outline: none;
+    width:90%
+}
+
+/* dropdown-menu */
+.dropdown{
+    font-size: 14px;
+    font-weight: bold;
+}
+.dropdown-menu li a{
+    color:rgba(18, 17, 17, 0.529);
+}
+
+.dropdown-menu{
+    box-shadow: 0px 1px 8px -4px rgb(0 0 0 / 42%);
+    border:none;
+    font-size: 13px;
+    transition: ease-in .2s;
+}
+.dropdown-item{
+    padding: .5rem 5rem 0.5rem 0.2rem;
+}
+.men, .women{
+    width:1400px;
+}
+.dropdown-menu[data-bs-popper]{
+    top:125%;
+}
+.inside-drop-box{
+    display:flex;
+    justify-content:space-around
+}
+.inside-drop{
+    display:flex;
+    width:50%;
+    margin-left:10px;
+} 
+
+/* dropdown-menu */
+/* main-nav */
+
+/* banner */
+
+.banner{
+    background-image:url("../index-images/indexImg/banner.jpeg");
+    height:600px;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.banner button{
+    /* display: block; */
+    padding:7px 20px;
+    border-radius: 7px;
+    color:white;
+    background-color:black;
+    font-size: 12px;
+}
+
+/* banner */
+
+/* trending-shirts */
+
+/* .trending-shirts{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    
+}
+
+.trending-card>img{
+    width:100%;
+    position:relative;
+}
+.trending-card a img:first-child{
+    position:absolute; 
+    left: 270px;
+    top: 885px;
+
+} */
+
+/* trending-shirts */
+
+/* women card */
+.women-card{
+    margin:30px 50px;
+}
+
+.cards-wrapper{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+}
+.card img{
+    position:relative;
+}
+.card-body a{
+    position: absolute;
+    left:270px;
+    top:395px;
+    
+}
+.card-body a img:hover{
+    filter: invert(200%) sepia(0%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+    /* filter:grayscale(100%); */
+}
+.card-title{
+    font-weight:bolder;
+}
+.custom-btn{
+    border-radius: 35px;
+    padding:10px;
+    background-color:white;
+    border:none;
+}
+.custom-btn:hover{
+    border:black;
+    background-color:black;
+}
+
+
+/* women card */
