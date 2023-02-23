@@ -9,7 +9,10 @@
 
 <style>
 
-
+#main{
+    display: flex;
+    margin: auto;
+}
 #adminform{
   width: 50%;
   margin:2rem auto;
@@ -40,6 +43,8 @@
   background-color: #003380;
 }
 
+
+
 </style>
 
 
@@ -49,7 +54,7 @@
 <body>
     
 
-
+<div id="main">
 
     <div id="adminform">
         <h2>Add New Products On Website</h2>
@@ -63,7 +68,11 @@
         
         </div>
 
+        <div id="second">
 
+        </div>
+
+    </div>
 
 <script>
 
@@ -74,11 +83,26 @@ let updateproductname=document.getElementById("producttitle")
 let updateproductcategory=document.getElementById("productcategory")
 let updateproductprice=document.getElementById("productmrp")
 
-
-
-
 let publishbtn=document.getElementById("publishdata");
 
+publishbtn.addEventListener("click",()=>{
+    let image=updateproductimg.value;
+    let title=updateproductname.value;
+    let category=updateproductcategory.value;
+    let price=updateproductprice.value;
+
+
+
+    let obj={
+        image:image,
+        title:title,
+        category:category,
+        price:price,
+    }
+
+    fetch()
+
+})
 
 
 </script>
