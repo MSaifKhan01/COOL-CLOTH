@@ -38,13 +38,14 @@
 
 .media {
    display:flex;
-   width:22%;
-   justify-content: space-evenly;
+   width:46%;
+   justify-content: flex-start;
 }
 .media>div{
     display:flex;
     align-items: center;
-    padding:5px
+    padding:5px;
+    margin-left: 10px;
 }
 .media>div a{
     padding-left: 5px;
@@ -192,7 +193,10 @@
 /* trending-shirts */
 
 /* women card */
-.women-card{
+.carousel{
+    margin-bottom:60px;
+}
+.women-card , .men-card{
     margin:30px 50px;
 }
 
@@ -230,3 +234,106 @@
 
 
 /* women card */
+
+/* featured-brand */
+.featue-brand-title h1{
+    text-align: center;
+}
+.feature-brand-content h5{
+    font-weight: bold;
+    margin-top: 10px;
+}
+.feature-brand-content{
+    display:flex;
+    justify-content:space-between;
+    margin:45px 0px
+}
+/* featured-brand */
+
+/* collab */
+.image-wrapper {
+    position: relative;
+  }
+
+  .image-hover{
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .7s ease-in-out;
+    width:100%;
+    
+  }
+
+  .image-hover:hover {
+    opacity: 1;
+    cursor:pointer;
+  }
+
+  .collab{
+    margin-top: 70px;
+  }
+  
+.collab button{
+    display:block;
+    border-radius: 7px;
+    padding:5px 10px;
+    background-color: black;
+    color:white;
+    margin: 10px auto;
+}
+.collab-title , .featured-product-title{
+    text-align: center;
+    margin:40px 0;
+}
+.card-container{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px 0px;
+}
+.card-container .card-title{
+    font-size: 11px;
+    color: #00000085;
+}
+.card-container .card{
+    border:none;
+}
+.card-name{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.card-price{
+    margin: 5px 0;
+}
+/* collab */
+
+.featured-product{
+    margin-top: 70px;
+}
+.card-body{
+    /* border: 1px solid */
+    padding: 1rem 0;
+}
+.featured-product-custom-carousel{
+   
+    display:flex!important;
+    align-items: center;
+    justify-content: space-between;
+}
+.featured-product-custom-carousel .card{
+   
+    margin:auto;
+}
+.featured-product-carouselItem{
+    width:50%;
+    overflow: hidden;
+}
+.featured-product-carouselItem img:hover{
+    transform: scale(1.1);
+}
+.featured-product-carouselItem img{
+    width:100%;
+    transition: .5s ease-in-out;
+}
+
