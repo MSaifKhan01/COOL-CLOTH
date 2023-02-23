@@ -22,8 +22,8 @@ function fetchdata(url) {
        let readydata=data.map((acc,item)=>{
             return{
                 id:acc.id,
-                title:acc.title,
-                image:acc.featured_image,
+                title:acc.name,
+                image:acc.images[0],
                 price:acc.price,
                 catagory:acc.tags[1]||acc.tags[0],
                 mrp:acc.price_max,
@@ -83,6 +83,7 @@ container.addEventListener("click",(e)=>{
     e.preventDefault()
     console.log(e.target.id)
     localStorage.setItem("showid",JSON.stringify(e.target.id))
+    localStorage.setItem("url",JSON.stringify(url))
     if(e.target.id){
         window.location.href="./productdetail.html"
     }
