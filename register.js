@@ -35,3 +35,6 @@ signup.addEventListener("submit",(e)=>{
     
    
 });
+document.getElementById("LogIn").addEventListener("click",()=>{
+    window.location.assign("./login.html")
+})
