@@ -10,11 +10,11 @@ let search=document.getElementById("search")
 
 
 ////fetch data///
-let url=`https://63f3b033fe3b595e2ee78796.mockapi.io`
+let url=`https://63f3b033fe3b595e2ee78796.mockapi.io/products`
 fetchdata(url,1)
 function fetchdata(url,page) {
     async function fetchdata(){
-        let res= await fetch(`${url}/products?limit=10&_page=1`)
+        let res= await fetch(`${url}?limit=10&_page=1`)
         let data=await res.json()
         console.log(data)
         
@@ -53,6 +53,7 @@ function display(data){
         disdiv.setAttribute("class","disdiv")
         let img=document.createElement("img")
         img.setAttribute("src",pro.image);
+        img.setAttribute("id",pro.id);
         let bander=document.createElement("span")
         bander.innerText=pro.bander
         let title=document.createElement("span")
@@ -64,3 +65,12 @@ function display(data){
         container.append(card)
     });
 }
+container.addEventListener("click",(e)=>{
+    e.preventDefault()
+    console.log(e.target.id)
+    localStorage.setItem("showid",JSON.stringify(e.target.id))
+    localStorage.setItem("url",JSON.stringify(url))
+    if(e.target.id){
+        window.location.href="./productdetail.html"
+    }
+})
