@@ -551,3 +551,10 @@ footer{
     padding-bottom: 40px;
     margin: 10px;
  }
+ #submit{
+   background-color: black;
+   color: white;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   width: 10%;
+ }

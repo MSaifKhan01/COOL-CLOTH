@@ -37,3 +37,4 @@ reg.addEventListener("click",()=>{
     },500)
    
 })
+
