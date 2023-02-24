@@ -9,13 +9,609 @@
     <title>men clothes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="./man.css">
+    <link rel="stylesheet" href="./cart_page.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
     <style>
 
+*{
+    font-family: "Merriweather Sans", sans-serif;
+}
+li:hover{
+  pointer-events: fill;
+}
+@media (min-width: 30em) {
+    .dropdow{
+        display: none;
+    }
+  
+}
+@media  (min-width:481) {
+ 
+    .footer1{
+  
+     
+     
+      margin-top: 9px;
+      width: 100%;
+      list-style: none;
+  }
+ body{
+    background-color: red;
+ }
+
+}
+@media  (max-width:822px) {
+ 
+    .footer1{
+  
+      display: grid;
+      grid-template-columns: repeat(2,1fr) !important;
+      margin-top: 9px;
+      width: 100%;
+      list-style: none;
+  }
+  .footer2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 10px;
+}
+.footer2 div{
+    display: flex;
+    margin: auto;
+}
+
+}
+@media  (min-width:822px) {
+    .dropdownicon{
+        display: none !important;
+      }
+     
+  
+}
+
+@media  (max-width:599px) {
+ 
+    #container{
+        display: grid;
+         grid-template-columns: repeat(2,1fr) !important;
+         gap: 15px;
+         margin: auto;
+       
+   
+    }
+    .cat{
+        display: none;
+    }
+    #topnav{
+        display: none;
+    } 
+    #wislist,#cart,#account{
+        display: none;
+    }
+    .secondlastnav{
+        box-sizing: border-box !important;
+    }
+   
+}
+
+@media (max-width:822px) and (min-width:600px) {
+    #topnav{
+        display: none;
+    } 
+    #container{
+        display: grid;
+         grid-template-columns: repeat(3,1fr) !important;
+         gap: 15px;
+         margin: auto;
+       
+   
+    }
+    .cat{
+        display: none;
+    }
+   
+  
+  
+}
+
+
+@media (max-width: 20em) {
+    #logo{
+        display: none;
+    }
+   
+    /* .dropdownicon{
+      display: none;
+    } */
+    /* #container{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 15px;
+        margin: 10px; 
+    } */
+  
+}
+
+@media (max-width: 30em) {
+  
+    .cat{
+        display: none;
+    }
+    
+    h1{
+        display: none;
+    }
+    #container{
+        display: grid;
+         grid-template-columns: repeat(1,1fr) !important;
+         gap: 15px;
+         margin: auto;
+         margin-left: 10px !important;
+       
+   
+    }
+/* 
+    #container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 15px;
+        margin: 10px; 
+    }
+    */
+}
+
+
+
+*:after, :before {
+border: 0 solid #e5e7eb;
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+border-top-style: solid;
+border-right-style: solid;
+border-bottom-style: solid;
+border-left-style: solid;
+border-top-color: rgb(229, 231, 235);
+border-right-color: rgb(229, 231, 235);
+border-bottom-color: rgb(229, 231, 235);
+border-left-color: rgb(229, 231, 235);
+border-image-source: initial;
+border-image-slice: initial;
+border-image-width: initial;
+border-image-outset: initial;
+border-image-repeat: initial;
+box-sizing: border-box;
+}
+body {
+
+background-color: #ffffff;
+}
+body {
+
+scroll-behavior: smooth;
+}
+:root {
+--logo-width-desktop: 120px;
+--logo-width-mobile: 80px;
+--logo-width-sticky: 120px;
+}
+
+:root {
+--base-line-height: 20;
+--color-primary: #000000;
+--plyr-color-main: #000000;
+--color-primary-darker: #333333;
+--color-body-text: #000000;
+--color-heading-text: #000000;
+--color-sub-text: #666666;
+--color-text-link: #000000;
+--color-text-link-hover: #999999;
+--color-btn-bg: #000000;
+--color-btn-bg-hover: #000000;
+--color-btn-text: #ffffff;
+--color-btn-text-hover: #ffffff;
+--color-btn-secondary-border: #000000;
+--color-btn-secondary-text: #000000;
+--btn-letter-spacing: 0px;
+--btn-border-radius: 5px;
+--btn-border-width: 1px;
+--btn-line-height: 23px;
+--product-title-color: #000000;
+--product-sale-price-color: #666666;
+--product-regular-price-color: #000000;
+--product-type-color: #666666;
+--product-desc-color: #666666;
+--color-topbar-background: #ffffff;
+--color-topbar-text: #000000;
+--color-menu-background: #000000;
+--color-menu-text: #f8f8f8;
+--color-border: #dedede;
+--color-footer-text: #000000;
+--color-footer-subtext: #666666;
+--color-footer-background: #f5f5f5;
+--color-footer-link: #666666;
+--color-footer-link-hover: #000000;
+--color-footer-background-mobile: #F5F5F5;
+--color-footer-bottom-text: #000;
+--color-footer-bottom-background: #f5f5f5;
+--color-footer-bottom-background-mobile: #F5F5F5;
+--color-header-text: #000000;
+--color-header-transparent-text: #000000;
+--color-main-background: #ffffff;
+--color-field-background: #ffffff;
+--color-header-background: #ffffff;
+--color-cart-wishlist-count: #ffffff;
+--bg-cart-wishlist-count: #da3f3f;
+--swatch-item-background-default: #f7f8fa;
+--text-gray-400: #a5a3a3;
+--text-gray-9b: #9b9b9b;
+--text-black: #000000;
+--text-white: #ffffff;
+--bg-gray-400: #f7f8fa;
+--bg-black: #000000;
+--rounded-full: 9999px;
+--border-color-1: #eeeeee;
+--border-color-2: #b2b2b2;
+--border-color-3: #d2d2d2;
+--border-color-4: #737373;
+--color-secondary: #666666;
+--color-success: #3a8735;
+--color-warning: #ff706b;
+--color-info: #959595;
+--color-disabled: #cecece;
+--bg-disabled: #f7f7f7;
+--bg-hover: #737373;
+--bg-color-tooltip: #000000;
+--text-color-tooltip: #ffffff;
+--color-image-overlay: #000000;
+--opacity-image-overlay: 0.2;
+--theme-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.07);
+--arrow-select-box: url(//cdn.shopify.com/s/files/1/0677/1464/6315/t/10/assets/ar-down.svg?v=9272826…);
+--font-base-size: 14;
+--font-btn-size: 14px;
+--font-btn-weight: 500;
+--font-h1-desktop: 54;
+--font-h1-mobile: 50;
+--font-h2-desktop: 42;
+--font-h2-mobile: 37;
+--font-h3-desktop: 31;
+--font-h3-mobile: 28;
+--font-h4-desktop: 27;
+--font-h4-mobile: 24;
+--font-h5-desktop: 23;
+--font-h5-mobile: 20;
+--font-h6-desktop: 21;
+--font-h6-mobile: 19;
+--arrow-down-url: url(//cdn.shopify.com/s/files/1/0677/1464/6315/t/10/assets/arrow-down.svg?v=1575524…);
+--arrow-down-white-url: url(//cdn.shopify.com/s/files/1/0677/1464/6315/t/10/assets/arrow-down-white.svg?v=7053573…);
+--product-title-line-clamp: unset;
+--spacing-sections-desktop: 100px;
+--spacing-sections-tablet: 75px;
+--spacing-sections-mobile: 50px;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    /* width: 100% !important; */
+    box-sizing: border-box !important ;
+    text-align: center;
+    padding-top: 10px;
+    margin: 10px;
+}
+li>svg{
+width: 15px;
+
+}
+.dropdown>svg{
+    width: 15px;  
+    text-align: center; 
+    /* display: block; */
+vertical-align: middle;
+
+
+}
+
+.socialmedia{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+   vertical-align: middle;
+   
+    list-style: none;
+    text-align: center;
+}
+.facebook{
+    width: 10px;
+}
+
+.socialmedia li,p{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    list-style: none;
+    text-align: center;
+}
+span{
+    margin-left: 5px;
+}
+.secondlastnav>svg{
+    width: 5%;
+    
+}
+.secondlastnav li{
+    list-style: none;
+}
+
+#downnav>.down{
+    
+ box-sizing: border-box;
+}
+.down li{
+    list-style: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+#downnav{
+   
+    margin: 10px;
+}
+.down{
+   
+    box-sizing:border-box !important;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+}
+.down li{
+    display: flex;
+}
+.downright,.down svg{
+    margin-right: 20px;
+   
+}
+.downright svg{
+width: 20px;
+}
+.btn{
+background-color:#fff;
+color: black;
+border: #fff;
+margin-top: 10px;
+}
+.btn:hover{
+background-color: #fff;
+color: black;
+}
+.dropdown-item{
+display: flex;
+justify-content: space-between;
+}
+.searchbarclose{
+visibility: hidden;
+}
+/* .searchbaropen{
+visibility: visible;
+width: 500px;
+} */
+h1{
+text-align: center;
+font-family: SF-Heading-font;
+
+
+Font-size: 42px;
+
+Font-weight: 400;
+
+Line-height: 28px;
+
+color: rgb(0, 0, 0)
+
+}
+a{
+
+text-decoration: none;
+color: black; 
+text-align: center;
+} 
+#heading{
+margin-top: 20px;
+box-sizing: border-box;
+
+margin: 10px;
+}
+/* #container{
+box-sizing: border-box;
+} */
+#container img{
+width: 100%;
+height: 80%;
+object-fit: cover;
+}
+#container{
+width: 100%;
+display: grid;
+grid-template-columns: repeat(4,1fr);
+gap: 15px;
+margin: 10px;
+margin: auto;
+
+}
+#mid{
+box-sizing: border-box;
+
+margin: 15px;
+}
+.disdiv{
+display: flex;
+flex-direction: column;
+margin: 10px;
+}
+.disdiv span{
+font-size: 15px;
+font-weight: 400;
+}
+.disdiv span:nth-child(1){
+color: #666666;
+font-weight: 600;
+font-size: 10px;
+}
+/* cards */
+
+.container2{
+    display: flex;
+    width: 90% !important;
+    margin: auto;
+    justify-content: space-between;
+    gap: 10px;
+}
+.content{
+    display: flex;
+   
+}
+.img{
+    width: 35%;
+}
+.img >img{
+    width: 20%;
+}
+.img-content{
+  
+    width: 50%;
+    margin-left: 10px;
+}
+
+#divima{
+    width: 100% !important;
+    height: 300px;
+}
+ img{
+    width: 10%;
+    height: 10%;
+    object-fit: cover;
+}
+#qty{
+    display: flex;
+    justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* text-align: center; */
+    border-radius: 5px;
+    gap: 5px;
+    width: 130%;
+ } 
+
+.mid{
+    display: flex;
+    justify-content: space-between;
+    }
+    #mid_btn>button{
+        display: block;
+        width: 100%;
+      height: 8vh;
+        border-radius: 10px;
+        background-color: #000000;
+        color: #e5e7eb;
+    }
+    
+    .order{
+        width: 25%;
+        margin-right: 40px;
+        float: right;
+       
+    } 
+
+#note{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+}
+#note>button{
+    width: 100px;
+    border: hidden;
+    background-color: white;
+    /* border-right:1px solid gray; */
+}
+#note>div:nth-child(1){
+  
+    border-right:1px solid gray;
+    
+    padding: 20px ;
+}
+#note>div:nth-child(1)>img{
+ 
+    width: 70px;
+    
+}
+#note img{
+    width: 100%;
+}
+/* footer */
+footer{
+    box-sizing: border-box;
+    margin: 10px;
+}
+.footer1 li{
+    list-style: none;
+    color: #666666;
+    font-size: small;
+}
+.footer1{
+  
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 9px;
+    width: 100%;
+    list-style: none;
+}
+.footer1>div{
+    padding-top: 50px;
+    border-right: 1px solid #DEDEDE;
+    border-bottom: 1px solid #DEDEDE ;
+    background-color: #F5F5F5;
+
+}
+.footer1>div:last-child{
+    border-right:0;
+}
+.footer1 p{
+    font-family: SF-Heading-font;
+    font-weight: 500;
+    color: #1d1c1c;
+    font: size 14px;
+    font-style:normal;
+}
+.btn{
+    border: 0;
+    background-color: #fff;
+}
+.dropdow a{
+    background-color: #ffffff;
+    width: 100%;
+    margin-left: 10px;
+}
+.dropdow{
+    border: 1px solid #DEDEDE;
+}
+.footer2{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 10px;
+}
     </style>
 </head>
 
@@ -94,8 +690,8 @@
                                     d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z">
                                 </path>
                             </svg></span></li>
-                    <li><a href="./womenclothes.html">WOMEN</a> <span class="dropdown"><svg fill="currentColor"
-                                style="width:10px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <li>women <span class="dropdown"><svg fill="currentColor" style="width:10px"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path
                                     d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z">
                                 </path>
@@ -109,7 +705,8 @@
                 </ul>
             </div>
             <div id="logo">
-                <img style="width: 100px; margin-top: 20px;" src="./IMG-20230221-WA0002.jpg" alt="logo">
+                <img style="width: 100px; margin-top: 20px;" src="./IMG-20230221-WA0002.jpg"
+                    alt="logo">
 
             </div>
             <div class="secondlastnav" style="margin-top: 20px;">
@@ -130,10 +727,6 @@
                                 </path>
                             </svg></li>
                         <li id="wislist">
-                            <span class=" position-relative">
-
-                            </span>
-
                             <svg class="w-[20px] h-[20px]" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 576 512">
                                 <path
@@ -155,74 +748,93 @@
         </nav>
     </div>
     <div id="heading">
-        <h1>ALL MEN PRODUCTS</h1>
+        <h1>Shopping Cart</h1>
         <div style="text-align: center; margin-top: 20px;">
-            <a href="#">Home</a><span><svg class="w-[12px] h-[12px]" style="width: 5px;" fill="currentColor"
-                    stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
-                    <path
-                        d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z">
-                    </path>
-                </svg></span>
-            <a href="./man.html">all men products</a>
+            <a href="#">Home</a><span>></span>
+            <a href="#">Your Shopping Cart</a>
         </div>
 
     </div>
-    <!-- filter part -->
-    <div style="display: flex; margin-left: 30px; gap: 20px;">
-        <!-- <nav>
-            <ul>
-            <li>
-              <a href="#" class="button add">+</a>
-              <div class="dialog" style="display:none">
-              <div class="title">Add Event</div>
-              <form action="addevent.php" method="post">
-              <select name="type">
-            <option value="a">Appointment</option>
-            <option value="a">Block</option>
-            </select>
-                <input name="start_dtm" type="datetime-local"/>
-                <input name="duration" type="time"/>
-                <input name="name" type="text" placeholder="Name"/>
-                <input name="location" type="text" placeholder="Location"/>
-                <textarea name="description" placeholder="Description" cols="30" rows="10" wrap="soft"></textarea>
-                <input type="submit" value="Ok"/>
-              </form>
+    <div class="container bg-white rounded-top mt-5" id="zero-pad">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-10 col-12 pt-3">
+                <div class="d-flex">
+                    <div class="pt-1"><h4>My Product</h4></div>
+                    <div class="ml-auto p-2"><a href="#" class="text-dark text-decoration-none" id="mobile-font">LOGIN</a></div>
+                    <div class="p-2"><a href="#" class="text-dark text-decoration-none a" id="mobile-font">HELP</a></div>                                            
+                </div>
+                <div class="d-flex flex-column pt-4">
+                    <div><h5 class="text-uppercase font-weight-normal">shopping bag</h5></div>
+                    <div class="font-weight-normal">2 items</div>
+                </div>
+                <div class="d-flex flex-row px-lg-5 mx-lg-5 mobile" id="heading">
+                    <div class="px-lg-5 mr-lg-5" id="produc">PRODUCTS</div>
+                    <div class="px-lg-5 ml-lg-5" id="prc">PRICE</div>
+                    <div class="px-lg-5 ml-lg-1" id="quantity">QUANTITY</div>
+                    <div class="px-lg-5 ml-lg-3" id="total">TOTAL</div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center pt-lg-4 pt-2 pb-3 border-bottom mobile">
+                    <div class="d-flex flex-row align-items-center">
+                        <div>
+                            <!-- push here -->
+                        </div>
+                        <div class="d-flex flex-column pl-md-3 pl-1">
+                            <div><h6>COTTON T-SHIRT</h6></div>
+                            <div >Art.No:<span class="pl-2">091091001</span></div>
+                            <div>Color:<span class="pl-3">White</span></div>
+                            <div>Size:<span class="pl-4"> M</span></div>
+                        </div>                    
+                    </div>
+                    <div class="pl-md-0 pl-1"><b>$9.99</b></div>
+                    <div class="pl-md-0 pl-2">
+                        <span class="fa fa-minus-square text-secondary"></span><span class="px-md-3 px-1">2</span><span class="fa fa-plus-square text-secondary"></span>
+                    </div>
+                    <div class="pl-md-0 pl-1"><b>$19.98</b></div>
+                    <div class="close">&times;</div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center pt-4 pb-3 mobile">
+                    <div class="d-flex flex-row align-items-center">
+                        <div><img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="150" height="150" alt="" id="image"></div>
+                        <div class="d-flex flex-column pl-md-3 pl-1">
+                            <div><h6>WHITE T-SHIRT</h6></div>
+                            <div >Art.No:<span class="pl-2">056289891</span></div>
+                            <div>Color:<span class="pl-3">White</span></div>
+                            <div>Size:<span class="pl-4"> XL</span></div>
+                        </div>                    
+                    </div>
+                    <div class="pl-md-0 pl-1"><b>$20.9</b></div>
+                    <div class="pl-md-0 pl-2">
+                        <span class="fa fa-minus-square text-secondary"></span><span class="px-md-3 px-1">2</span><span class="fa fa-plus-square text-secondary"></span>
+                    </div>
+                    <div class="pl-md-0 pl-1"><b>$41.8</b></div>
+                    <div class="close">&times;</div>
+                </div>
+    
             </div>
-            </li>
-            
-            </ul>
-            </div>        
-            </nav> -->
-
-        <div>
-            <select name="filter" id="filter">
-                <option value="filter">Filter</option>
-            </select>
-        </div>
-        <div>
-            <select name="featured" id="featured" data-bs-toggle="tooltip" data-bs-title="Another tooltip">
-                <option value="">Featured</option>
-                <option value="atoz">A To Z</option>
-                <option value="ztoa">Z To A</option>
-                <option value="lowtohigh">Low To High</option>
-                <option value="hightolow">High To Low</option>
-            </select>
         </div>
     </div>
-
-    <div id="mid">
-        <a href="./productdetail.html">
-            <div id="container">
-                <!-- data append here -->
+    <div class="container bg-light rounded-bottom py-4" id="zero-pad">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-10 col-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <button class="btn btn-sm bg-light border border-dark">GO BACK</button>
+                    </div>
+                    <div class="px-md-0 px-1" id="footer-font">
+                        <b class="pl-md-4">SUBTOTAL<span class="pl-md-4">$61.78</span></b>
+                    </div>
+                    <div>
+                        <button class="btn btn-sm bg-dark text-white px-lg-5 px-3">CONTINUE</button>
+                    </div>
+                </div>
             </div>
-        </a>
-
+        </div>
     </div>
-    <ul class="pagination justify-content-center" id="pagination">
 
 
 
-    </ul>
+
+
     <!-- footer -->
     <footer>
         <div class="footer1">
@@ -345,7 +957,7 @@
     </footer>
 
 </body>
-<script src="./man.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
@@ -357,11 +969,92 @@
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    let idarray=JSON.parse(localStorage.getItem("idarray"))||[]
+    console.log(idarray)
+function fetchdata(url) {   
+async function fetchdata(){
+    // try {
+      let res= await fetch(url)
+    let data=await res.json() 
+    console.log(data) 
+    let readydata=[data].map((acc,item)=>{
+        return{
+            id:acc.id,
+            name:acc.name,
+            image:acc.featured_image,
+            image1:acc.images[0],
+            image2:acc.images[1]||acc.images[0],
+            image3:acc.images[2]||acc.images[0],
+            image4:acc.images[0]||acc.images[0],
+            price:acc.price,
+            catagory:acc.tags[1]||acc.tags[0],
+            mrp:acc.price_max,
+            bander:acc.vendor
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
+        }
+    })
+    display(readydata)
+    console.log(readydata)
+ 
+    incbtn.addEventListener("click",()=>{
+            count++;
+            display(readydata)
+            
+        })
+    dcsbtn.addEventListener("click",()=>{
+        if(count>1){
+              count--;
+            display(readydata)
+           
+        }
+          
+        })
+        
+    function display(data){
+         proname=document.getElementById("proname")
+        proname.innerText=data[0].name
+        let quan=+data[0].price*count
+      
+        quantity.innerText=count; 
+        priceshow.innerText=quan;  
+        
+
+    }
+    let womendata=readydata.filter((women,i)=>{
+        if(women.bander=="Koovs"){
+            return women.bander="COOL CLOTH"
+        }
+       
+    })
+    let womendata1=readydata.filter((women,i)=>{
+        
+        if(women.bander=="Koovs"){
+            return women.bander="COOL CLOTH"
+        }
+       
+    })
+     leftdisplay(readydata)
+     
+}
+
+fetchdata()
+}
+
+function leftdisplay(data){
+photo.innerHTML=""
+data.forEach((product) => {
+    let div=document.createElement("div")
+    div.setAttribute("id","imagediv")
+    let img=document.createElement("img")
+    img.setAttribute("src",product.image)
+    div.append(img)
+    photo.append(div)
+});
+}
+    </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </html>

@@ -13,9 +13,11 @@ let search=document.getElementById("search")
 ////fetch data///
 let url=`https://upset-red-outfit.cyclic.app/Products`
 fetchdata(url)
-function fetchdata(url) {
+function fetchdata(url,page=1) {
+    try {
     async function fetchdata(){
-        let res= await fetch(url)
+        let res= await fetch(url+`?_limit=20&_page=${page}`)
+        console.log(res)
         let data=await res.json()
         console.log(data)
         
@@ -51,16 +53,20 @@ function fetchdata(url) {
         // console.log(womendata)
         display(womendata)
         console.log(womendata1)
-    
+        
     }
     
     fetchdata()
+    } catch (error) {
+       console.log(error)     
+    }
 }
 function display(data){
     container.innerHTML=""
     data.forEach((pro) => {
         let card=document.createElement("div")
         let disdiv=document.createElement("div")
+        let pricediv=document.createElement("h6")
         disdiv.setAttribute("class","disdiv")
         let img=document.createElement("img")
         img.setAttribute("src",pro.image);
@@ -69,12 +75,13 @@ function display(data){
         bander.innerText=pro.bander
         let title=document.createElement("span")
         title.innerText=pro.title
-        let price=document.createElement("span")
-        price.innerText="Rs."+" "+pro.price
-        title.setAttribute("id",pro.id);
-        bander.setAttribute("id",pro.id);
-        price.setAttribute("id",pro.id);
-        disdiv.append(bander,title,price)
+        let price1=document.createElement("span")
+        price1.innerText=`MRP.`+" "+pro.price
+        price1.style.textDecoration="line-through"
+        let price2=document.createElement("span")
+        price2.innerText=`Rs. ${pro.price-Math.floor(Math.random()*10000)}.00`
+        pricediv.append(price1,price2)
+        disdiv.append(bander,title,pricediv)
         card.append(img,disdiv)
         container.append(card)
     });
