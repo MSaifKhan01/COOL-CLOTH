@@ -193,6 +193,32 @@ createaccountBtn.addEventListener("click",()=>{
 })
 
 
+
+//Admin signup token 
+
+createaccountBtn.addEventListener("click", function () {
+    registerData()
+  });
+  async function registerData(){
+    let obj={
+      
+      firstname:firstName.value,
+      lastname:lastName.value,
+      email:email.value,
+      mobile:mobile.value,
+      password:password.value,
+      
+    }
+  
+    let resp=await fetch(`${"https://upset-red-outfit.cyclic.app/"}/adminLogin`,{
+      method:"POST",
+      body:JSON.stringify(obj),
+      headers:{'Content-Type': 'application/json'}
+    })
+    let data=await resp.json()
+    console.log(data)
+  }
+
       </script>
 
 </body>
