@@ -1,3 +1,5 @@
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 let leftcont=document.getElementById("leftcont")
 let rightcont=document.getElementById("rightcont")
 let localStorageid=JSON.parse(localStorage.getItem("showid"))
@@ -27,12 +29,12 @@ async function fetchdata(){
     let readydata=[data].map((acc,item)=>{
         return{
             id:acc.id,
-            name:acc.name,
+            name:acc.title,
             image:acc.featured_image,
             image1:acc.images[0],
             image2:acc.images[1]||acc.images[0],
             image3:acc.images[2]||acc.images[0],
-            image4:acc.images[0]||acc.images[0],
+            image4:acc.images[3]||acc.images[0],
             price:acc.price,
             catagory:acc.tags[1]||acc.tags[0],
             mrp:acc.price_max,
@@ -47,13 +49,24 @@ async function fetchdata(){
     incbtn.addEventListener("click",()=>{
             count++;
             display(readydata)
+            if(count>=6){
+                priceshow.innerText="AB TERA GHAR JAYEGA ESME"; 
+                priceshow.style.backgroundColor="red"
+                priceshow.style.fontWeight=600;
+
+            }
             
         })
+        priceshow.style.backgroundColor="white"
+                priceshow.style.fontWeight=600;
+
     dcsbtn.addEventListener("click",()=>{
         if(count>1){
               count--;
             display(readydata)
-           
+            priceshow.style.backgroundColor="white"
+                priceshow.style.fontWeight=600;
+
         }
           
         })
@@ -135,7 +148,25 @@ data.forEach((product) => {
 });
 
 }
+let idarray=JSON.parse(localStorage.getItem("idarray"))||[]
+let myset=new Set(idarray)
+console.log(idarray)
+// console.log(idarray)
 let addcart=document.getElementById("addtocard")
-addcart.addEventListener("click",()=>{
-    window.location.href="./payment.html"
+// console.log(addcart)
+addcart.addEventListener("click",(e)=>{
+   
+window.location.reload()
+   
+        if(myset.has(localStorageid)){
+            alert("nhi ho payega")
+        }else{
+             idarray.push(localStorageid)
+            localStorage.setItem("idarray", JSON.stringify
+            (idarray));
+            window.location.href="./cart.html"
+            alert("jakr payment kar")
+        }
+    
+    
 })
