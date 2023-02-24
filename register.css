@@ -431,9 +431,10 @@ font-size: 10px;
     width: 400px;
     height: 600px;
     margin-top: 20px;
-    margin-left: 500px;
-    padding-left: 60px;
+    margin-left: 550px;
+    padding-left: 100px;
     border-radius: 5px;
+    padding-top: 20px;
 }
 #register{
    margin-top: 10px;
@@ -459,11 +460,12 @@ font-size: 10px;
 }
 
 #LogIn{
+   
    margin-top: 10px;
    text-align: center;
    width: 250px;
    height: 30px;
-   padding-top: 5px;
+   padding-top: 10px;
    border-radius: 5px;
    border:2px solid black; 
 }
