@@ -6,6 +6,9 @@
     box-sizing: border-box;
     font-family: 'Sen', sans-serif; 
 }
+a{
+    text-decoration: none;
+}
 
 /* top-nav-banner */
 .top-banner{
@@ -76,12 +79,14 @@
 }
 .logo{
     display:flex;
+    align-items: center;
 }
 .logo h1{
     margin-left: 5px;
     font-weight:bold;
     font-family: 'Dancing Script', cursive;
 }
+
 
 .nav-content, .nav-icons{
     display:flex;
@@ -93,7 +98,7 @@
     justify-content:flex-end;
     padding:10px;
 }
-.nav-icons>img{
+.nav-icons a>img{
     padding-left:20px;
 }
 .search{
@@ -104,6 +109,7 @@
     width:70%;
     justify-content: space-between;
 } 
+
 
 #search-box{
     border:none;
@@ -170,27 +176,6 @@
 }
 
 /* banner */
-
-/* trending-shirts */
-
-/* .trending-shirts{
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
-    
-}
-
-.trending-card>img{
-    width:100%;
-    position:relative;
-}
-.trending-card a img:first-child{
-    position:absolute; 
-    left: 270px;
-    top: 885px;
-
-} */
-
-/* trending-shirts */
 
 /* women card */
 .carousel{
@@ -274,7 +259,7 @@
     margin-top: 70px;
   }
   
-.collab button{
+.collab button , .explore-brand button{
     display:block;
     border-radius: 7px;
     padding:5px 10px;
@@ -282,7 +267,7 @@
     color:white;
     margin: 10px auto;
 }
-.collab-title , .featured-product-title{
+.collab-title , .featured-product-title, .explore-brand-title, .brand-on-cc-title{
     text-align: center;
     margin:40px 0;
 }
@@ -290,6 +275,7 @@
     display:grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 30px 0px;
+    place-items: center;
 }
 .card-container .card-title{
     font-size: 11px;
@@ -308,11 +294,11 @@
 }
 /* collab */
 
-.featured-product{
-    margin-top: 70px;
+/* featured-product */
+.featured-product , .explore-brand,.brand-on-cc{
+    margin: 70px auto;
 }
 .card-body{
-    /* border: 1px solid */
     padding: 1rem 0;
 }
 .featured-product-custom-carousel{
@@ -336,4 +322,230 @@
     width:100%;
     transition: .5s ease-in-out;
 }
+/* featured-product */
 
+/* explore brands */
+
+.explore-brand-title h1{
+    text-align: center;
+}
+/* explore brands */
+
+/* brand-on-cc */
+.brand-on-cc-container{
+    display:grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-gap: 30px 30px;
+}
+/* brand-on-cc-container */
+
+/* footer */
+.socialmedia{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 15px;
+    list-style: none;
+    text-align: center;
+}
+.socialmedia li:last-child{
+    margin-left: 40px;
+}
+
+.footer1 li{
+    list-style: none;
+    color: #666666;
+    font-size: small;
+}
+.footer1{
+    
+    display: flex;
+    /* grid-template-columns: repeat(4,1fr); */
+    margin-top: 9px;
+    width: 100%;
+    list-style: none;
+}
+.footer1>div{
+    padding-top: 50px;
+    border-right: 1px solid #DEDEDE;
+    border-bottom: 1px solid #DEDEDE ;
+    background-color: #F5F5F5;
+
+}
+.footer1>div:last-child{
+    border-right:0;
+}
+.footer1 p{
+    
+    font-weight: 500;
+    color: #1d1c1c;
+    font-size: 14px;
+    font-style:normal;
+}
+.btn{
+    border: 0;
+    background-color: #fff;
+}
+.dropdow a{
+    background-color: #ffffff;
+    width: 100%;
+    margin-left: 10px;
+}
+.dropdow{
+    border: 1px solid #DEDEDE;
+    display: none;
+}
+.footer2{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+/* footer */
+
+@media only screen and (min-width: 100px) and (max-width:1300px){
+
+    
+    .card:last-child{
+        display: none;
+    }
+    .cards-wrapper
+    {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .card-container{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .brand-on-cc-container{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+@media  (min-width: 60px) and (max-width: 990px) {
+    .navbar-collapse{
+        position: absolute;
+        top: 60px;
+        left: 20px;
+        background: white;
+        padding: 10px;
+        border: 1px solid #00000061;
+        border-radius: 7px;
+    }
+    .men-nav-img{
+        display:none;
+    }
+    .inside-drop-box{
+        justify-content: flex-start;
+    }
+    .men, .women{
+        width:650px;
+    }
+    .top-banner{
+        display:none;
+    }
+    .search{
+        display:none;
+    }
+    .banner{
+        background-image:url("https://cdn.shopify.com/s/files/1/0677/1464/6315/files/George_thomas_artworks4.jpg?v=1676617973&width=750")
+    }
+    .card:nth-child(3){
+        display: none;
+        border: 5px solid;
+    }
+    .cards-wrapper
+    {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .card-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .brand-on-cc-container{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .card-body a{
+        left: 230px;
+        top: 400px;
+    }
+    
+}
+@media only  screen and (max-width: 600px) {
+    .men, .women{
+        width:350px;
+    }
+    .collab .card{
+        width:12rem;
+    }
+    .inside-drop-box .shoes{
+        display: none;
+    }
+
+    .feature-brand-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-brand-content div{
+        width:79% !important;
+    }
+    .featured-product-custom-carousel{
+        flex-direction: column;
+    }
+.card:nth-child(2){
+    display: none;
+    border: 5px solid;
+}
+.cards-wrapper
+{
+    grid-template-columns: repeat(1,1fr);
+}
+
+.card-container{
+    grid-template-columns: repeat(1,1fr);
+}
+.brand-on-cc-container{
+    grid-template-columns: repeat(2,1fr);
+}
+.brand-on-cc-container img{
+    width:100%;
+}
+.card-body a{
+    left:400px;
+    top:645px;
+}
+}
+@media only  screen and (max-width: 400px)
+{
+    .logo h1{
+        display: none;
+    }
+    .men, .women{
+        width:250px;
+    }
+    .inside-drop-box .brand{
+        display: none;
+    }
+}
+
+@media  (max-width:822px) {
+ 
+    .footer1{
+  
+      display: grid;
+      grid-template-columns: repeat(2,1fr) !important;
+      margin-top: 9px;
+      width: 100%;
+      list-style: none;
+  }
+  .footer2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 10px;
+}
+.footer2 div{
+    display: flex;
+    margin: auto;
+}
+
+}
