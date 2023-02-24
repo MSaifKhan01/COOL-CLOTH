@@ -4,13 +4,265 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add product Admin page</title>
+
+
+<style>
+
+#main{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+#adminform{
+  width: 50%;
+  position:sticky;
+  top: 85px;
+  height: 50vh;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+
+}
+#adminform  h3{
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+#adminform input{
+  width: 60%;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+#adminform button{
+  background-color: black;
+  color: white;
+  border: 0px;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 5px 10px;
+  width: 60%;
+  height: 5vh;
+}
+input{
+    height: 5vh;
+    border-radius: 10px;
+}
+
+#adminform button:hover{
+  background-color: #003380;
+}
+#second{
+  margin: auto;
+  width: 46%;
+
+  position: relative;
+ 
+}
+#cards>div{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 5px;
+    margin: auto;
+}
+#cards img{
+    width:100%;
+}
+
+</style>
+
+
+
+
 </head>
 <body>
-    <div class="cont">
-        <div class="form">
-            
+    
+
+<div id="main">
+
+    <div id="adminform">
+        <h2>Add New Products On Website</h2>
+           <form action="">
+              <input type="text" placeholder="Enter The Image Address" id="productimage"><br>
+             <input type="text" placeholder="Enter The Product Title" id="producttitle"><br>
+              <input type="text" placeholder="Enter The Category " id="productcategory"><br>
+              <input type="number" placeholder="Enter The Price" id="productmrp"><br>
+              <button id="publishdata">Publish Product On Website</button>
+           </form>
+        
         </div>
+
+        <div id="second">
+            <h1>ALL PRODUCTS (<span id="count"></span>)</h1>
+            <div id="cards">
+
+            </div>
+
+        </div>
+
     </div>
 </body>
+
+
+<script>
+
+let length=document.getElementById("count")
+let card=document.getElementById("cards")
+let updateproductimg=document.getElementById("productimage")
+let updateproductname=document.getElementById("producttitle")
+let updateproductcategory=document.getElementById("productcategory")
+let updateproductprice=document.getElementById("productmrp")
+
+let publishbtn=document.getElementById("publishdata");
+window.addEventListener("load",()=>{
+    dispalyData()
+})
+
+function dispalyData(){
+    fetch(`https://upset-red-outfit.cyclic.app/Products`)
+    .then((res)=> res.json())
+    .then((data)=>{
+        console.log(data)
+
+        let proData=data.map((item,i)=>({
+        id: item.id,
+        title: item.name,
+
+        price: item.price
+,
+        description: "Rs. " + item.price
+,
+        linkText: "Edit",
+        linkUrl: "https://google.com",
+   
+        imageUrl:[item.images[0],item.images[1]||item.images[0],item.images[3]||item.images[0]]
+        }))
+        console.log(proData)
+        renderData(proData)
+        length.innerText=proData.length
+    })
+}
+
+
+// loginfunction()
+// async function loginfunction(){
+//     let obj={
+//       username:"Prashant",
+//       password:"cool5",
+//       email:"prashant@coolcloth.com",
+      
+//     }
+//   try {
+//     let resp=await fetch(`https://upset-red-outfit.cyclic.app/adminLogin`,{
+//       method:"POST",
+//       body:JSON.stringify(obj),
+//       headers:{'Content-Type': 'application/json'}
+//     })
+//     let data=await resp.json()
+//     // localStorage.setItem("localAccessToken",data.accessToken)
+    
+  
+//     console.log(data)
+//   } catch (error) {
+//     alert("please enter valid credential!!")
+//   }
+    
+//   }
+
+publishbtn.addEventListener("click", () => {
+  
+  let image = updateproductimg.value;
+  let name = updateproductname.value;
+  let category = updateproductcategory.value;
+  let price = updateproductprice.value;
+  //console.log(name, image, dept, salary);
+  let obj = {
+    name: name,
+    image: image,
+    category: category,
+    price:price,
+  };
+  fetch(`https://63f86f636978b1f9105939cb.mockapi.io/womenproducts`,{
+    method:"POST",
+    body:JSON.stringify(obj),
+    headers:{
+      'content-type':'application/json',
+    }
+  })
+  .then(res=>res.json())
+  .then((data)=>{
+    console.log(data)
+    dispalyData();
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+
+ });
+
+function renderData(cardData) {
+  let cardList = `
+    <div class="card-list">
+      ${cardData
+        .map((item) =>
+          getCard(
+            item.id,
+            item.title,
+            item.description,
+            item.linkText,
+            item.linkUrl,
+            item.imageUrl
+          )
+        )
+        .join("")}
+    </div>
+  `;
+
+  card.innerHTML = cardList;
+
+ 
+}
+
+function getCard(id, title, desc, linkText, linkUrl, imageUrl) {
+  let card = `
+      <div class="card" data-id=${id} >
+        <div class="card__img">
+        <img src=${imageUrl} alt="food" />
+        </div>
+        <div class="card__body">
+          <h3 class="card_item card_title">${title}</h3>
+          <div class="card_item card_description">
+            ${desc}
+          </div>
+          <a href=${linkUrl} data-id=${id} class="card_item card_link">${linkText}</a>
+        </div>
+      </div>
+  `;
+  return card;
+}
+
+
+publishbtn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    let image=updateproductimg.value;
+    let title=updateproductname.value;
+    let category=updateproductcategory.value;
+    let price=updateproductprice.value;
+
+console.log(image,title,category,price)
+
+    let obj={
+        image:image,
+        title:title,
+        category:category,
+        price:price,
+    }
+
+    fetch()
+
+})
+
+
+</script>
+
 </html>
+

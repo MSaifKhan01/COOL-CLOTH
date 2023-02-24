@@ -169,15 +169,15 @@
                 </div>
                 <div class="content">
     
-                    <div class="img">
-                        <img
-                        src="https://cdn.shopify.com/s/files/1/0677/1464/6315/products/EmptyName_b_800x_38bd8e73-b704-47d2-a977-4c998cc8ec68.webp?v=1671193746&width=533"
-                        alt="">
+                    <div class="img" id="photo">
+                     <!-- append image -->
                     </div>
-                    <div class="img-content">
-                        <h3 style="font-size: 20px;">Laurel Panelled Varsity Jacket - Purple</h3>
-                        <h4 style="font-size: 20px;">SIZE: S</h4>
-                        <p>Remove</p>
+                    <div class="img-content" id="proname">
+                        <!-- <h3 style="font-size: 20px;">Laurel Panelled Varsity Jacket - Purple</h3> -->
+                        <h4 style="font-size: 20px;">SIZE: <span id="size">
+                            <!-- size -->
+                        </span></h4>
+                       <button style="border:0">Remove</button>
                     </div>
                     
                 </div>
@@ -188,8 +188,8 @@
                         Price
                     </h3>
                 </div>
-                <div>
-                    Rs-3456789
+                <div id="price">
+                    <!-- price -->
                 </div>
             </div>
             <div class="box">
@@ -199,9 +199,10 @@
                     </h3>
                 </div>
                 <div id="qty">
-                    <h3><span>-</span>
-                        <span>1</span>
-                        <span>+</span></h3>
+                    <h3><button id="dec"><span>-</span></button>
+                    <h3><button><span id="quantity">1</span></button>
+                    <h3><button id="inc"><span>+</span></button>
+                       
                 </div>
             </div>
             <div class="box">
@@ -211,7 +212,9 @@
                     </h3>
                 </div>
                 <div>
-                    12345676
+                 <span id="total">
+                    <!-- total append here -->
+                 </span>
                 </div>
             </div>
         </div>
@@ -249,7 +252,9 @@
 </div>
 <div class="mid">
     <h4>Subtotal</h4>
-    <h4>Rs. 13,870.00</h4>
+    <h4>Rs. <span id="total">
+                    <!-- total append here -->
+                 </span></h4>
 </div>
 <div id="mid_btn">
     <button >
@@ -381,7 +386,7 @@
     </footer>
 
 </body>
-<script src="./man.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
@@ -393,77 +398,221 @@
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+let photo=document.getElementById("photo")
+// let rightcont=document.getElementById("rightcont")
+let localStorageid=JSON.parse(localStorage.getItem("showid"))
+let geturl=JSON.parse(localStorage.getItem("url"))
+console.log("id",geturl)
+let count=1;
+ 
+let dcsbtn=document.getElementById("dec")
+let incbtn=document.getElementById("inc")
+let quantity=document.getElementById("quantity")
+let priceshow=document.getElementById("price")
+let proname=document.getElementById("proname")
+// let xl=document.getElementById("xl")
+// let m=document.getElementById("m")
+let size=document.getElementById("size")
+// size.innerText="XL"
+quantity.innerText="1"||count;
+quantity.innerText=count;
+  
+let url=`${geturl}/${localStorageid}`
+console.log("url"+url)
+fetchdata(url)
+function fetchdata(url) {
+    
+async function fetchdata(){
+    // try {
+      let res= await fetch(url)
+    let data=await res.json() 
+    console.log(data) 
+    let readydata=[data].map((acc,item)=>{
+        return{
+            id:acc.id,
+            name:acc.name,
+            image:acc.featured_image,
+            image1:acc.images[0],
+            image2:acc.images[1]||acc.images[0],
+            image3:acc.images[2]||acc.images[0],
+            image4:acc.images[0]||acc.images[0],
+            price:acc.price,
+            catagory:acc.tags[1]||acc.tags[0],
+            mrp:acc.price_max,
+            bander:acc.vendor
 
-
-
-        let Cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let Container = document.getElementById("cart-container");
-
-        function DisplayProduct(data) {
-            let total = document.getElementById("cart-total")
-            const totalPro = document.getElementById("top")
-            Container.innerHTML = "";
-            Cart.forEach((product) => {
-                let card = document.createElement("div");
-                let image = document.createElement("img");
-                let brand = document.createElement("h3");
-                let category = document.createElement("p");
-                let details = document.createElement("p");
-                let quantity = document.createElement("p");
-
-                let price = document.createElement("h4");
-                let Remove = document.createElement("button");
-                let Increment = document.createElement("button");
-                let Decrement = document.createElement("button");
-
-                quantity.textContent = product.quantity;
-                image.src = product.image;
-                brand.textContent = product.name;
-                category.textContent = product.category;
-                price.textContent = `₹${product.price}`;
-                details.textContent = product.title;
-                Remove.textContent = "Remove";
-                Increment.textContent = "+";
-                Decrement.textContent = "-";
-
-                Remove.addEventListener("click", () => {
-                    Cart = Cart.filter((ele) => {
-                        return ele.id !== product.id;
-                    })
-                    localStorage.setItem("cart", JSON.stringify(Cart));
-                    DisplayProduct();
-                })
-                Increment.addEventListener("click", () => {
-                    product = product.quantity++;
-                    localStorage.setItem("cart", JSON.stringify(Cart));
-                    DisplayProduct();
-                })
-                Decrement.addEventListener("click", () => {
-                    if (product.quantity > 1) {
-                        product = product.quantity--;
-                        localStorage.setItem("cart", JSON.stringify(Cart));
-                        DisplayProduct();
-                    }
-                })
-
-                Container.append(card);
-                card.append(image, brand, price, details, category, Remove, Increment, Decrement, quantity);
-
-
-            });
-            let qtyel = document.getElementById("qty")
-            let sum = 0;
-            let count = 0;
-            for (let i = 0; i < Cart.length; i++) {
-                sum += Cart[i].price * Cart[i].quantity;
-                count += Cart[i].quantity;
-            }
-            total.textContent = sum;
-            qtyel.textContent = count;
 
         }
-        DisplayProduct();
+    })
+    display(readydata)
+    console.log(readydata)
+ 
+    incbtn.addEventListener("click",()=>{
+            count++;
+            display(readydata)
+            
+        })
+    dcsbtn.addEventListener("click",()=>{
+        if(count>1){
+              count--;
+            display(readydata)
+           
+        }
+          
+        })
+        // xl.style.backgroundColor="black"
+        // xl.style.color="white"
+        // xl.addEventListener("click",()=>{
+        //     size.innerText="XL"
+        //     xl.style.backgroundColor="black"
+        //     xl.style.color="white"
+        //     m.style.backgroundColor="white"
+        //     m.style.color="black"
+        // })
+        // m.addEventListener("click",()=>{
+        //     size.innerText="M"
+        //     m.style.backgroundColor="black"
+        //     m.style.color="white"
+        //     xl.style.backgroundColor="white"
+        //     xl.style.color="black"
+    //     // })
+    function display(data){
+         proname=document.getElementById("proname")
+        proname.innerText=data[0].name
+        let quan=+data[0].price*count
+      
+        quantity.innerText=count; 
+        priceshow.innerText=quan;  
+        
+
+    }
+   
+    let womendata=readydata.filter((women,i)=>{
+        // if((women.catagory.includes("women")||women.catagory.includes("Women")||women.catagory.includes("WOMEN"))){
+        //     return true
+        // }
+        if(women.bander=="Koovs"){
+            return women.bander="COOL CLOTH"
+        }
+       
+    })
+    let womendata1=readydata.filter((women,i)=>{
+        
+        if(women.bander=="Koovs"){
+            return women.bander="COOL CLOTH"
+        }
+       
+    })
+     leftdisplay(readydata)
+     
+}
+
+fetchdata()
+}
+// let img1=document.getElementById("img11")
+// // let img2=document.getElementById("img22")
+// let img3=document.getElementById("img33")
+// let img4=document.getElementById("img44")
+function leftdisplay(data){
+photo.innerHTML=""
+data.forEach((product) => {
+    // let div1=document.createElement("img")
+    // let div2=document.createElement("img")
+    // let div3=document.createElement("img")
+    // let div4=document.createElement("img")
+    // let div5=document.createElement("img")
+    // div2.setAttribute("src",product.image1)
+    // div3.setAttribute("src",product.image2)
+    // div4.setAttribute("src",product.image3)
+    // div5.setAttribute("src",product.image4)
+    // let div=document.createElement("div")
+    let img=document.createElement("img")
+    img.setAttribute("src",product.image)
+//   img.append(div1)
+//   img1.append(div2)
+// //   img2.append(div1)
+//   img3.append(div4)
+//   img4.append(div5)
+//     div.append(img)
+    photo.append(img)
+});
+
+}
+// let addcart=document.getElementById("addtocard")
+// addcart.addEventListener("click",()=>{
+//     // window.location.href="./payment.html"
+//     console
+// })
+
+        // let Cart = JSON.parse(localStorage.getItem("cart")) || [];
+        // let Container = document.getElementById("cart-container");
+
+        // function DisplayProduct(data) {
+        //     let total = document.getElementById("cart-total")
+        //     const totalPro = document.getElementById("top")
+        //     Container.innerHTML = "";
+        //     Cart.forEach((product) => {
+        //         let card = document.createElement("div");
+        //         let image = document.createElement("img");
+        //         let brand = document.createElement("h3");
+        //         let category = document.createElement("p");
+        //         let details = document.createElement("p");
+        //         let quantity = document.createElement("p");
+
+        //         let price = document.createElement("h4");
+        //         let Remove = document.createElement("button");
+        //         let Increment = document.createElement("button");
+        //         let Decrement = document.createElement("button");
+
+        //         quantity.textContent = product.quantity;
+        //         image.src = product.image;
+        //         brand.textContent = product.name;
+        //         category.textContent = product.category;
+        //         price.textContent = `₹${product.price}`;
+        //         details.textContent = product.title;
+        //         Remove.textContent = "Remove";
+        //         Increment.textContent = "+";
+        //         Decrement.textContent = "-";
+
+        //         Remove.addEventListener("click", () => {
+        //             Cart = Cart.filter((ele) => {
+        //                 return ele.id !== product.id;
+        //             })
+        //             localStorage.setItem("cart", JSON.stringify(Cart));
+        //             DisplayProduct();
+        //         })
+        //         Increment.addEventListener("click", () => {
+        //             product = product.quantity++;
+        //             localStorage.setItem("cart", JSON.stringify(Cart));
+        //             DisplayProduct();
+        //         })
+        //         Decrement.addEventListener("click", () => {
+        //             if (product.quantity > 1) {
+        //                 product = product.quantity--;
+        //                 localStorage.setItem("cart", JSON.stringify(Cart));
+        //                 DisplayProduct();
+        //             }
+        //         })
+
+        //         Container.append(card);
+        //         card.append(image, brand, price, details, category, Remove, Increment, Decrement, quantity);
+
+
+        //     });
+        //     let qtyel = document.getElementById("qty")
+        //     let sum = 0;
+        //     let count = 0;
+        //     for (let i = 0; i < Cart.length; i++) {
+        //         sum += Cart[i].price * Cart[i].quantity;
+        //         count += Cart[i].quantity;
+        //     }
+        //     total.textContent = sum;
+        //     qtyel.textContent = count;
+
+        // }
+        // DisplayProduct();
 
 
 
