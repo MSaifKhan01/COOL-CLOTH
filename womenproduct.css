@@ -354,13 +354,16 @@ body {
         display: flex;
         justify-content: space-between;
        }
+      /* .searchbarclose{
+    
+      } */ 
+      
       .searchbarclose{
-        visibility: hidden;
+        visibility:visible !important;
+   
+      
       }
-      /* .searchbaropen{
-        visibility: visible;
-        width: 500px;
-      } */
+     
       h1{
         text-align: center;
         font-family: SF-Heading-font;

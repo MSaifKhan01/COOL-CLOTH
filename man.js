@@ -1,9 +1,5 @@
 let container = document.getElementById("container");
-let searchbar = document.getElementById("searchbar");
-let search = document.getElementById("search");
-// search.addEventListener("click",(e)=>{
 
-searchbar.classList.remove("serchbarclose");
 
 // })
 
@@ -14,11 +10,12 @@ fetchdata(url);
 function fetchdata(url, page = 1) {
   try {
     async function fetchdata() {
-      let res = await fetch(url + `?_limit=20&_page=${page}`);
+      let res = await fetch(url);
       // let totaldata=res.headers.get("x_Total_Count")
       let totaldata = res.headers.get("X-Total-Count");
       paginafun(totaldata);
       let data = await res.json();
+      console.log(data)
 
       let readydata = data.map((acc, item) => {
         return {
@@ -28,7 +25,9 @@ function fetchdata(url, page = 1) {
           price: acc.price,
           catagory: acc.tags[1] || acc.tags[0],
           mrp: acc.price_max,
-          bander: "COOL CLOTH",
+          bander:acc.vendor,
+          type:acc.type,
+          handle:acc.handle
         };
       });
       let womendata = readydata.filter((women, i) => {
@@ -42,6 +41,8 @@ function fetchdata(url, page = 1) {
         }
       });
       // console.log(womendata)
+      search(womendata)
+      filter(womendata)
       display(womendata);
     }
     fetchdata();
@@ -94,47 +95,65 @@ function paginafun(totaldata) {
     pagina.innerHTML = `${page.join("")}`;
     let but = document.querySelectorAll(".page-item");
     console.log(but);
-    // for (let buttun of but) {
-    //   console.log(button.page - item.data - page - number);
-    //   // but.addEventListener("click",(e)=>{
-    //   //     page=e.target.data-page-number
-    //   //     fetchdata(url,page)
-    //   // })
-    // }
-    // but.addEventListener("click",(e)=>{
-    //     page=(e.target.dataset.page.Number)
-    //     fetchdata(url,page)
 
-    // })
+    }
   }
+  // /filter part
+  let featured=document.getElementById("featured")
+  featured.addEventListener("change",()=>{
+    console.log(featured.value)
+    if(featured.value=="atoz"){
+      fetchdata(`https://upset-red-outfit.cyclic.app/mens?_sort=title&_order=asc`)
+    }else if(featured.value=="ztoa"){
+      fetchdata(`https://upset-red-outfit.cyclic.app/mens?_sort=title&_order=desc`)
+    }else if(featured.value=="lowtohigh"){
+      fetchdata(`https://upset-red-outfit.cyclic.app/mens?_sort=price&_order=asc`)
+    
+    }else if(featured.value=="hightolow"){
+      fetchdata(`https://upset-red-outfit.cyclic.app/mens?_sort=price&_order=desc`)
+    }
+  })
+  let addsearch=document.getElementById("searchbar")
+let searchbtn=document.getElementById("search")
+let searchvalue=document.getElementById("searchvalue")
+function search(data){
+ searchbtn.addEventListener("click",(e)=>{
+  
+   let searfilter=data.filter((ele,i)=>{
+    if(ele.handle.toUpperCase().includes(searchvalue.value.toUpperCase())||ele.title.toUpperCase().includes(searchvalue.value.toUpperCase())||ele.type.toUpperCase().includes(searchvalue.value.toUpperCase())){
+        return true
+    }
+    return false;
+   });
+   display(searfilter)
+
+   
+})   
 }
-// $(document).ready( function() {
 
-//     $('.add').click(function(e){
-//       e.stopPropagation();
-//      if ($(this).hasClass('active')){
-//        $('.dialog').fadeOut(200);
-//        $(this).removeClass('active');
-//      } else {
-//        $('.dialog').delay(300).fadeIn(200);
-//        $(this).addClass('active');
-//      }
-//    });
-//    $('.radio > .button').click( function() {
-//      $('.radio').find('.button.active').removeClass('active');
-//      $(this).addClass('active');
-//    });
-
-//    function closeMenu(){
-//      $('.dialog').fadeOut(200);
-//      $('.add').removeClass('active');
-//    }
-
-//    $(document.body).click( function(e) {
-//         closeMenu();
-//    });
-
-//    $(".dialog").click( function(e) {
-//        e.stopPropagation();
-//    });
-//    });
+// filter
+let choice=document.getElementById("Choice")
+// let nike=document.getElementById("nike")
+// let Bravesoul=document.getElementById("Bravesoul")
+// let Comatoes=document.getElementById("Comatoes")
+// let Sneakers=document.getElementById("Sneakers")
+// let Slides=document.getElementById("Slides")
+// let tshitr=document.getElementById("T-Shirts")
+function filter(data){
+    choice.addEventListener("change",(e)=>{
+if(choice.value==""){
+  return display(data)
+}
+      let filter=data.filter((ele,i)=>{
+       if(ele.handle.toUpperCase().includes(choice.value.toUpperCase())||ele.title.toUpperCase().includes(choice.value.toUpperCase())||ele.type.toUpperCase().includes(choice.value.toUpperCase())||ele.bander.toUpperCase().includes(choice.value.toUpperCase())){
+           return true
+       }
+       return false;
+      });
+      display(filter)
+      console.log(filter)
+   
+      
+   
+  })
+   }
