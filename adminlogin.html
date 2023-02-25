@@ -177,57 +177,7 @@
 
 
 
-<!-- loginUserButton.addEventListener("click", async function () {
-  loginfunction()
-  });
-  
-  
-  async function loginfunction(){
-    let obj={
-      username:loginUserUsername.value,
-      password:loginUserPassword.value
-    }
-  try {
-    let resp=await fetch(`${baseServerURL}/login`,{
-      method:"POST",
-      body:JSON.stringify(obj),
-      headers:{'Content-Type': 'application/json'}
-    })
-    let data=await resp.json()
-    localStorage.setItem("localAccessToken",data.accessToken)
-    
-  
-    console.log(data)
-  } catch (error) {
-    alert("please enter valid credential!!")
-  } 
-  }
+ 
 
 
 
-
-
-  Register?
-  registerUserButton.addEventListener("click", function () {
-    registerData()
-  });
-  async function registerData(){
-    let obj={
-      username:registerUserUsername.value,
-      firstname:registerUserFirstname.value,
-      lastname:registerUserLastname.value,
-      email:registerUserEmail.value,
-      password:registerUserPassword.value,
-      avatar:registerUserAvatar.value,
-      department:registerUserLevel.value
-    }
-  
-    let resp=await fetch(`${baseServerURL}/register`,{
-      method:"POST",
-      body:JSON.stringify(obj),
-      headers:{'Content-Type': 'application/json'}
-    })
-    let data=await resp.json()
-    console.log(data)
-  
-  } -->
