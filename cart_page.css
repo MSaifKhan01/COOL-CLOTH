@@ -585,3 +585,97 @@ footer{
     padding-bottom: 40px;
     margin: 10px;
 }
+
+
+/* new div */
+
+
+/*body*/
+.content-container{
+    width:92%;
+    margin: auto;
+    display:flex;
+    justify-content:space-between;
+  }
+  .cart-container{
+    width:60%;
+  }
+
+  .cart{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:20px 10px;
+    margin: 20px 0;
+    /* width:100%; */
+}
+.cart .card{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 1px 1px 15px -10px rgba(0,0,0,0.75);
+}
+
+.cart .card img{
+    width:100%;   
+}
+
+.cart .card p{
+    font-size:13px;
+    margin:10px 0;
+    padding: 0 10px;
+}
+.cart .card div{
+     padding:10px 5px;
+}
+.cart .card div button{
+    margin: 0px 5px;
+    padding: 6px 9px;
+    font-size: 13px;
+    background-color: #FDFDF9;
+    border: none;
+    cursor:pointer;
+    box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 70%);;
+}
+
+
+  /* payment */
+ 
+  .payment h2,.cart-head h2{
+    margin: 20px 0px;
+  }
+  
+  .payment-box{
+    position:sticky;
+    top:150px;
+    padding:10px;
+    border: 1px solid rgb(230 230 228);
+    
+  }
+  .payment-box ul li
+  {
+    list-style-type: none;
+    line-height:40px;
+  }
+  .payment-box ul li span{
+    float: right;
+  }
+  .payment-box p{
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  .payment-box p img{
+    width:20%;
+  }
+  .payment-box button{
+    padding: 19px 90px;
+    font-size: 18px;
+    display: block;
+    margin: 10px auto;
+    color:white;
+    background-color:rgb(229 151 91);
+    border:none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
