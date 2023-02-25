@@ -431,7 +431,7 @@
     margin-left: 400px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 600px;
-    height: 350px;
+    height: 400px;
     padding-left: 10px;
     border-radius: 5px;
 }
@@ -483,6 +483,10 @@
   height: 20px;
   border-radius: 3px;
   
+}
+#form{
+   height: 500px;
+   
 }
 #New>button{
     background-color: black;
@@ -555,6 +559,8 @@ footer{
    background-color: black;
    color: white;
    padding-top: 10px;
-   padding-bottom: 10px;
+   height: 40px;
+   padding-bottom: 20px;
    width: 10%;
+   text-align: center;
  }
