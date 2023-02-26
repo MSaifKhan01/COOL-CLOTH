@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+
+
+<style>
+
+
+.loginbox{
+  width: 40%;
+  margin:2rem auto;
+  padding: 2rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.loginbox input{
+  width: 100%;
+}
+.head3{
+  text-align: center;
+  font-size: 30px;
+}
+#signn{
+  background-color:rgb(30, 3, 3);
+  color: white;
+  border: 0px;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 5px 10px;
+}
+#signn:hover{
+  background-color: #003380;
+}
+.end{
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+    
+
+    <div class="loginbox">
+        <div class="head3">
+          <h3> Admin Sign In</h3>
+        </div>
+          <hr>
+          <div id="child">
+            <form>
+              <label for="mobile"> Enter Your Email Address*</label>
+              <input type="email"  id="mobile" min="1000000000" max="9999999999">
+             <br><br>
+              <label for="password">Enter Your Password*</label>
+              <input type="password" id="password" />
+              <br><br>
+              <input type="button" id="signn"value="LOG IN">
+              <br>
+              <div class="end">
+                Not Register?
+                <a href="Adminsignup.html">SIGN UP</a>
+              </div>
+               
+            </form>
+          </div>
+      </div>
+  
+
+
+      <script>
+        let admin_arr = [{
+          name : "Msaif",
+          email : "msaif@coolcloth.com",
+          password : "cool5"
+        } ,
+        {
+          name : "Rupesh",
+          email : "rupesh@coolcloth.com",
+          password : "cool5"
+        },
+        {
+          name : "Monojoy",
+          email : "monojoy@coolcloth.com",
+          password : "cool5"
+        },
+        {
+          name : "Shankar",
+          email : "shankar@coolcloth.com",
+          password : "cool5"
+        },
+        {
+          name : "Prashant",
+          email : "prashant@coolcloth.com",
+          password : "cool5"
+        }]
+      
+        let email = document.getElementById("mobile")
+      
+        let password = document.getElementById("password")
+      
+      let admin_btn = document.getElementById("signn")
+      
+      
+      admin_btn.addEventListener("click",()=>{
+        let isadmin = false
+        let name ;
+        for(let i=0;i<admin_arr.length;i++){
+        if(admin_arr[i].email === email.value){
+          if(admin_arr[i].password === password.value){
+            isadmin=true
+            name = admin_arr[i].name
+          }
+        }
+      }
+      if(isadmin){
+        alert( "Welcome Admin" + " " + name  )
+        // window.location.href = "./addProduct.html"
+        window.location.href = "./dashboard.html"
+      }else{
+        alert("Wrong Credentials please Enter valid Cardentials")
+      }
+      })
+      
+
+
+//admin login token System
+
+      admin_btn.addEventListener("click", async function () {
+  loginfunction()
+  });
+  
+  async function loginfunction(){
+    let obj={
+      email:loginAdminEmail.value,
+      password:loginAdminPassword.value
+    }
+  try {
+    let resp=await fetch(`${"https://upset-red-outfit.cyclic.app/"}/adminLogin`,{
+      method:"POST",
+      body:JSON.stringify(obj),
+      headers:{'Content-Type': 'application/json'}
+    })
+    let data=await resp.json()
+    localStorage.setItem("localAccessToken",data.accessToken)
+    
+  
+    console.log(data)
+  } catch (error) {
+    alert("please enter valid credential!!")
+  } 
+  }
+      
+
+
+
+
+
+
+
+      </script>
+      
+
+
+</body>
+</html>
+
+
+
+
+
+ 
+
+
+
