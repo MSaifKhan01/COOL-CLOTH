@@ -11,14 +11,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+        @media screen and (max-width: 1200px){
+	.rcol{
+		width: 100%;
+	}
+	.scol{
+		width: 100%;
+	}
+}
+@media screen and (max-width: 768px){
+	.container{
+		width: 95%;
+	}
+	.row.r2:after{
+		width: 95%;
+	}
+    #cont1{
+        display: flex;
+        flex-direction: column;
+    }
+ 
+} 
       body{
 	background: #000;
 	 font-family: Arial, Helvetica, sans-serif;
 }
 .container{
 	background: rgb(255, 255, 255)!important;
-	border: none;
+display: flex;
 	border-radius: 20px;
+    border:6px solid #0ba0f7d3 !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 h6.text-muted{
 	    color: #6c757d85!important
@@ -86,94 +110,97 @@ div.col-2{
 	width: 40%;
 }
 
-@media screen and (max-width: 1200px){
-	.rcol{
-		width: 100%;
-	}
-	.scol{
-		width: 100%;
-	}
-}
-@media screen and (max-width: 768px){
-	.container{
-		width: 95%;
-	}
-	.row.r2:after{
-		width: 95%;
-	}
  
-}  
  .col-2>img{
         width:100%;
     }
     .mt-3{
-       background-color:  #ffffff;
+       background-color:  #e9e509;
     }
     #cont{
-        width: fit-content;
-        display: grid;
-        grid-template-columns: repeat(5,1fr);
-        gap: 10px;
+      width:100%;
+        border:1px solid red;
+        display:flex;
     }
     #cont img{
        width: 100%;
     }
+    #cont1{
+        display: flex;
+    }
     </style>
 </head>
 <body>
-    <div class="container m-5 mx-auto">
-        <div class="row main">
-            <div id="cont" class="col-lg-6 col-12 my-5 rcol">
-                <!-- append product -->
-                  <div id="cont">
+    
+    <div class="container m-5 mx-auto" id="cont1">
+       
+        <div class="col-lg-6 col-12 my-5 scol" style="border: 1px solid;">
+           <a href="./index.html"><i class="fa fa-home" style="font-size:48px;color:rgb(212, 0, 255)"></i></a>
+            <div class="row r1"><h6 class="text-muted">ORDER TOTAL:</h6><h4 class="text-danger">₹<span id="total"></span></h4></div>
+            <div class="row r2">
+                <h6>Product Details</h6>
+                <h6 class="htwo" style="font-size: 20px; font-weight: 600;">Quantity:</h6><span  class="ht" style="font-size: 20px; font-weight: 600; color: #e4083fe0;"></span>
 
             </div>
-            </div>
-          
-                <div class="col-lg-6 col-12 my-5 scol">
-                   <a href="./index.html"><i class="material-icons" style="font-size:48px;color:rgb(243, 8, 223); text-align: center; margin-top: 25x;">fast_rewind</i><i class="fa fa-home" style="font-size:48px;color:rgb(212, 0, 255)"></i></a>
-                    <div class="row r1"><h6 class="text-muted">ORDER TOTAL:</h6><h4 class="text-danger">₹<span id="total"></span></h4></div>
-                    <div class="row r2">
-                        <h6>Product Details</h6>
-                        <h6 class="htwo" style="font-size: 20px; font-weight: 600;">Quantity:</h6><span  class="ht" style="font-size: 20px; font-weight: 600; color: #e4083fe0;"></span>
-                        
-                    </div>
-                    <h1 id="massage"></h1>
-                    <div class="row r3"><h3 class="payment">PAYMENT DETAILS</h3></div>	
-                    <div class="row r4"><h6 class="payment-method">Select Payment method:</h6></div>
-                    <div class="row r5">
-                        <div class="col-2"><img src="https://img.icons8.com/color/48/000000/mastercard-logo.png"/></div>
-                        <div class="col-2"><img src="./google-pay.png"/></div>
-                        <div class="col-2"><img src="https://th.bing.com/th/id/OIP.0Laq_NzAeJ704IVVURKQhAHaEK?w=318&h=180&c=7&r=0&o=5&pid=1.7"/></div>
-                        <div class="col-2"><img src="data:image/jpeg;base64,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"/></div>
-                        
-                    </div>
-                <div class="row r6">
-                    <form class="personalDetails">
-                        <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Cardholder Name">
-                          </div>
-                          <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Card number">
-                          </div>
-                        <div class="form-group">
-                              <div class="row">
-                                    <div class="col-4">
-                                     <input type="text" class="form-control" placeholder="MM/YY">
-                                    </div>
-                                <div class="col-4 offset-2">
-                                      <input type="password" class="form-control" placeholder="CCV">
-                                </div>
-                                <div class="col-2 th"><i class="far fa-credit-card"></i>
-                                </div>
-                              </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3">PLACE ORDER</button>
-                    </form>
-                </div>
+            <h1 id="massage"></h1>
+            <div class="row r3"><h3 class="payment">PAYMENT DETAILS</h3></div>	
+            <div class="row r4"><h6 class="payment-method">Select Payment method:</h6></div>
+            <div class="row r5">
+                <div class="col-2"><img src="https://img.icons8.com/color/48/000000/mastercard-logo.png"/></div>
                 
+                <div class="col-2"><img src="https://th.bing.com/th/id/OIP.0Laq_NzAeJ704IVVURKQhAHaEK?w=318&h=180&c=7&r=0&o=5&pid=1.7"/></div>
+                <div class="col-2"><img src="data:image/jpeg;base64,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"/>
+                </div>
+
             </div>
+        <div class="row r6">
+            <form class="personalDetails">
+                <div class="form-group">
+                <input type="text" class="form-control" placeholder="Cardholder Name">
+                  </div>
+                  <div class="form-group">
+                <input type="text" class="form-control" placeholder="Card number">
+                  </div>
+                <div class="form-group">
+                      <div class="row">
+                            <div class="col-4">
+                             <input type="text" class="form-control" placeholder="MM/YY">
+                            </div>
+                        <div class="col-4 offset-2">
+                              <input type="password" class="form-control" placeholder="CCV">
+                        </div>
+                        <div class="col-2 th">
+                        </div>
+                      </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">PLACE ORDER</button>
+            </form>
         </div>
+        </div>
+        <div id="detaile" style="width:100%; height:fit-content; margin-top: 60px; padding-top: 30px; padding-bottom: 30px; margin: 10px;">
+          
+                <form action="" style="display: flex; flex-direction: column; gap: 10px;">
+                    <h1>CUSTOMER DEATAILS</h1>
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Enter name">
+                    <label >Enter Mob.number</label>
+                    <input type="number" placeholder="Enter Mob.number" required>
+                    <label >Enter City</label>
+                    <input type="text" placeholder="Enter city" >
+                    <label for="">Enter Locality</label>
+                    <input type="text" placeholder="Enter Locality" >
+                    <label for="">Area Pin Code</label>
+                    <input type="number" placeholder="Enter Area Pin Code" required >
+                    
+                    <input type="submit" value="submit">
+    
+    
+                </form>
+    
+          
+
+        </div>
+       
     </div>
 </body>
 <script src="./payment.js"></script>
