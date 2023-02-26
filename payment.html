@@ -5,250 +5,349 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-      body{
-	background: #000;
-	 font-family: Arial, Helvetica, sans-serif;
-}
-.container{
-	background: rgb(255, 255, 255)!important;
-	border: none;
-	border-radius: 20px;
-}
-h6.text-muted{
-	    color: #6c757d85!important
-}
-h4.text-danger{
-	margin-left: 250px;
-	color: #f11126!important;
-}
-.htwo{
-	margin-left: 200px;
-}
-.scol{
-	padding-left: 60px;
-}
-.row.r2{
-	margin-bottom: 20px;
-}
-.row.r2:after{
-	content: '.';
-    font-size: 0;
-    display: block;
-    height: 1px;
-    width: 77%;
-    background: #a9abae3d;
-}
-h3.payment{
-	margin-top: 30px;
-}
-h6.payment-method{
-	margin-top: 30px;
-}
-.r5.col-2{
-	padding-left: 0;
-}
-div.col-2{
-	cursor: pointer;
-}
-.personalDetails{
-	margin-right: 100px;
-	padding-top: 30px;
-}
-.form-control{
-	border: none;
-	border-radius: none;
-	border-bottom: 1px solid #a9abae3d;
-}
-.form-control:focus{
-	border: none;
-    color: #000!important;
-    font-weight: bold;
-    border-color: rgb(199, 118, 199);
-    border-bottom: 1px solid #a9abae3d;
-    outline: 0;
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, .25);
-}
-.far{
-	color: #adb5bd;
-}
-.th{
-	margin-top: 10px;
-}
-.btn.btn-primary{
-	border: none;
-	border-radius: 40px;
-	width: 40%;
-}
-
-@media screen and (max-width: 1200px){
-	.rcol{
-		width: 100%;
-	}
-	.scol{
-		width: 100%;
-	}
-}
-@media screen and (max-width: 768px){
-	.container{
-		width: 95%;
-	}
-	.row.r2:after{
-		width: 95%;
-	}
- 
-}  
- .col-2>img{
-        width:100%;
-    }
-    .mt-3{
-       background-color:  #ffffff;
-    }
-    #cont{
-        width: fit-content;
-        display: grid;
-        grid-template-columns: repeat(5,1fr);
-        gap: 10px;
-    }
-    #cont img{
-       width: 100%;
-    }
-    </style>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"">
 </head>
-<body>
-    <div class="container m-5 mx-auto">
-        <div class="row main">
-            <div id="cont" class="col-lg-6 col-12 my-5 rcol">
-                <!-- append product -->
-                  <div id="cont">
+<style>
+    body{ 
+    margin-top:40px; 
+}
+.stepwizard-step p {
+    margin-top: 10px;
+}
 
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-order: 0;
+
+}
+
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.btn
+{
+        border-radius: 0px;
+}
+.btn-circle {
+       width: 56px;
+    height: 56px;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 20px;
+    line-height: 1.428571429;
+    border-radius: 35px;
+    margin-top: -14px;
+    border: solid 3px #ccc !important;
+    opacity:1 !important;
+     -webkit-box-shadow:inset 0px 0px 0px 3px #fff !important; 
+     -moz-box-shadow:inset 0px 0px 0px 3px #fff !important;
+    -o-box-shadow:inset 0px 0px 0px 3px #fff !important;
+   -ms-box-shadow:inset 0px 0px 0px 3px #fff !important; 
+   box-shadow:inset 0px 0px 0px 3px #fff !important;
+      /* backgournd-color:#428bca; */
+}
+
+
+</style>
+<body>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+    
+     <div class="container">
+    <div class="stepwizard">
+        <div class="stepwizard-row setup-panel">
+            <div class="stepwizard-step">
+                <a href="#VerifyEmail-step" type="button" class="btn btn-success btn-circle" disabled="disabled">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                </a>
+                <p>Verify Email</p>
             </div>
+            <div class="stepwizard-step">
+                <a href="#ProfileSetup-step" type="button" class="btn btn-primary btn-circle" id="ProfileSetup-step-2">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+                <p>Profile Setup</p>
             </div>
-          
-                <div class="col-lg-6 col-12 my-5 scol">
-                   <a href="./index.html"><i class="material-icons" style="font-size:48px;color:rgb(243, 8, 223); text-align: center; margin-top: 25x;">fast_rewind</i><i class="fa fa-home" style="font-size:48px;color:rgb(212, 0, 255)"></i></a>
-                    <div class="row r1"><h6 class="text-muted">ORDER TOTAL:</h6><h4 class="text-danger">₹<span id="total"></span></h4></div>
-                    <div class="row r2">
-                        <h6>Product Details</h6>
-                        <h6 class="htwo" style="font-size: 20px; font-weight: 600;">Quantity:</h6><span  class="ht" style="font-size: 20px; font-weight: 600; color: #e4083fe0;"></span>
-                        
-                    </div>
-                    <h1 id="massage"></h1>
-                    <div class="row r3"><h3 class="payment">PAYMENT DETAILS</h3></div>	
-                    <div class="row r4"><h6 class="payment-method">Select Payment method:</h6></div>
-                    <div class="row r5">
-                        <div class="col-2"><img src="https://img.icons8.com/color/48/000000/mastercard-logo.png"/></div>
-                        <div class="col-2"><img src="./google-pay.png"/></div>
-                        <div class="col-2"><img src="https://th.bing.com/th/id/OIP.0Laq_NzAeJ704IVVURKQhAHaEK?w=318&h=180&c=7&r=0&o=5&pid=1.7"/></div>
-                        <div class="col-2"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAoHBwkHBgoJCAkLCwoMDxkQDw4ODx4WFxIZJCAmJSMgIyIoLTkwKCo2KyIjMkQyNjs9QEBAJjBGS0U+Sjk/QD3/2wBDAQsLCw8NDx0QEB09KSMpPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT3/wAARCABQAFADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2SiivL/Hvj15JJdJ0aUrGpK3Fwh5c91U9h6nv0HHXWjRlVlyxKjFydkdF4k+Imm6G721sPt14vDJG2EQ/7TevsM++K891P4g+INSYgXn2SM9Ethsx/wAC+9+tczW34V8N/wDCT6k9p/aEVoUTfhl3PIO+0ZA4789+lerHD0qMeaWvmdChGKuzJnuZ7p99xNLM/wDekcsf1oguZrZ99vNJE4/ijcqf0r0DXPhSbTTGn0i6uLq4jG5oZQv7wd9uAMH25zXnVbU6sKq90qMlLY6XTPiB4g01h/ppuoweY7kb8/8AAvvfrXoPhz4jabrTpbXY+w3bcBXbMbn/AGW9fY4/GvGaCMjB6VnVwtOp0sxSpxZ9LUV5Z4D8evbyxaTrMxaBiEguHPMZ7Kx7r6Ht9OnqdeRWoypS5ZHNKLi7M5H4ieI20PRBb2rlby9yiMDyifxN9eQB9c9q8XrpviDqZ1LxfdjOY7XFug9Nv3v/AB4tXM16+FpezpruzopxtEKfDNJbzxzQSPHLGwZHQ4Kkdwa6bwL4Ws/FN5exX09xGtvGjIIWUEkkg5yD0wPzrs/+FSaJ/wA/epf9/U/+Ip1MVTpy5ZDlUinZlnwT45i8QRrZX5WLU0HbhZwO6+h9R+I46YvxF8FEmXW9Liz/ABXcKj85AP5/n61pp8KNGikWSO+1RHQhlZZkBUjoQdvBrtIImht443leZkUAySY3N7nAAz9BXmurCnU56P3GDkou8T5tor2W6+F2gXV3LPi7h8xi3lxS7UXPYDHA9q8x8U6Mnh/xDc6fDK8sUe1kZ/vYYA4OO4zivSpYmFV2jubxmpbGQQCMEZBr2T4b+JG1nRms7qQteWWFLE8vGfut9eCD9PevG66HwJqbaX4wsW3ER3DfZpB6h+n/AI8FoxVL2lN90FSN4mHdTtdXc08n35ZGdvqTn+tRVLcwtbXMsEgw8TsjfUHFRV0LbQsntL25sJxPZ3EtvKBjfE5U49MivaPh5e3OoeD7e4vJ5J5mllBkkbcxAcgc14hXs/wvcN4JgAPKzTA/XeT/AFrhx6Xs7+ZlW+E5Dx54g1ax8Y3tvaaldwQoI9sccpCjKKTx9a3fhZqt/qn9rfb7y4ufLMOzzXLbchs4/IVynxJjZPG94zKQJEidc9xsAz+YP5V0Hwe/5jP1h/k9TUjH6rdLov0FJL2Zb+Kmp32nDSvsN5cW3medv8mVk3Y2Yzg89TXl9xcz3k7T3U0k0z/ekkYsx7ck16N8Yemj/wDbb/2SvNK2waXsU/X8yqXwoKkglaC4imX70bq4+oII/lUdPhjM08US/ekdUH1JAH866maHRfEDTDpvi+8+UiO5IuEPru+9/wCPBq5qvZviN4cbWtEF1apuu7LLqAOXT+JfrxkfT3rxnOeR0rmwtX2lNd0RTleIV3fw18VW+kSzaZqEgit7hxJFKxwqPjBBPYHA59R71wlFa1aaqRcZDlFSVmfQmqaDpWvJH/aVlDdBRlGYcgH0Yc4p2laJpmiI8WmWcNsHwziMct1xk9T36+9eAw393bJst7u4iT+7HKyj8ga9E+ELtI+tPI7O5MOWY5J4fvXm1sLKnTb5tF0MZU3GO4nxh6aP/wBtv/ZK80r0v4wf8wf/ALbf+yV5pXZg/wCDH5/maU/hQV0HgXTTqnjGwjwTHbt9pkPoE5H/AI8VrnyQASTgDqa9h+GfhttI0Zr+7jK3d/htrDmOIfdX2JySfqPSqxVX2dN92OpK0Tta8s8e+A3tpZdW0eEtAxL3Fug5jPdlHdfUdvp09Torx6NaVKXNE5oycXdHzSDkAjkGivZPEnw307WXe5sW+wXjcsUXMbn/AGl7H3GPxrzzU/AfiDS2bdYNcxjpJanzAfw+9+lexSxVOot7M6Y1Is56r+ka3f6DdNcabcGGRl2twGDD0IPFVJYJoG2zQyxN/dkQqfyNJHDLM22GKSRv7saFj+QrdpSVnsVuaOt+I9S8QtCdSnEvkgiMKgUDOM9PoPyrLJABJIAHUmt/TPA3iHVWHl6c9vGf+Wt2fKA/D7x/KvQvDfw007SHS61FxqF2p3LuXEUZ9Qvc+5z9BXPPEUqKsvuRDnGKOb8B+ApL+eLVtYhKWaEPBbuOZj2Zh2X0Hf6dfWaKK8itWlVlzSOeUnJ3Z//Z"/></div>
-                        
-                    </div>
-                <div class="row r6">
-                    <form class="personalDetails">
-                        <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Cardholder Name">
-                          </div>
-                          <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Card number">
-                          </div>
-                        <div class="form-group">
-                              <div class="row">
-                                    <div class="col-4">
-                                     <input type="text" class="form-control" placeholder="MM/YY">
-                                    </div>
-                                <div class="col-4 offset-2">
-                                      <input type="password" class="form-control" placeholder="CCV">
-                                </div>
-                                <div class="col-2 th"><i class="far fa-credit-card"></i>
-                                </div>
-                              </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3">PLACE ORDER</button>
-                    </form>
-                </div>
-                
+            <div class="stepwizard-step">
+                <a href="#Security-Setup-step" type="button"  class="btn btn-success-2 btn-circle"  disabled="disabled" id="Security-Setup-step-3">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+                <p>Security Setup</p>
             </div>
         </div>
     </div>
+    <form role="form">
+        <div class="row setup-content" id="VerifyEmail-step">
+            <div class="col-xs-12">
+                <div class="col-md-12">
+                     <br/>
+                    <div class="form-horizontal">
+                        <form  role="form">
+                            <fieldset>
+                              <legend>Enter Your Email Information</legend>
+                              <br/>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-holder-name">Your Email</label>
+                                <div class="col-sm-9">
+                                  <input  maxlength="100" type="email" required="required" class="form-control" placeholder="Enter Email"  />
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-number">Password</label>
+                                <div class="col-sm-9">
+                                 <input  maxlength="100" type="password" required="required" class="form-control" placeholder="Enter Password"  />
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-number">Re-enter Password</label>
+                                <div class="col-sm-9">
+                                 <input  maxlength="100" type="password" required="required" class="form-control" placeholder="Enter Password"  />
+                                </div>
+                              </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Setup Profile</button>
+                </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="ProfileSetup-step">
+            <div class="col-xs-12">
+                <div class="col-md-12">
+                     <br/>
+                    <div class="form-horizontal">
+                        <form  role="form" id="form">
+                            <fieldset>
+                          
+                              <legend>Enter Your Profile Information</legend>
+                              <br/>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-holder-name">Your Email</label>
+                                <div class="col-sm-9">
+                                  <input  maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Email"  />
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-number">Name</label>
+                                <div class="col-sm-9">
+                                 <input maxlength="100" type="text" required="required" id="inputname" class="form-control" placeholder="Enter Name" />
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-number">Primary Phone Number</label>
+                                <div class="col-sm-9">
+                                 <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Primary Phone Number" />
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-number">Address</label>
+                                <div class="col-sm-9">
+                                 <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Address" />
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                   <div class="form-group">
+                                        <label class="col-sm-6 control-label" for="card-number">City</label>
+                                        <div class="col-sm-6" style="padding-left:8px">
+                                         <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter City" />
+                                        </div>
+                                      </div>
+                              </div>
+                               <div class="col-lg-6">
+                                   <div class="form-group">
+                                        <label class="col-sm-6 control-label" for="card-number">State/Province</label>
+                                        <div class="col-sm-6" style="padding:0px">
+                                         <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter State/Province" />
+                                        </div>
+                                      </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-number">Country</label>
+                                <div class="col-sm-9">
+                                 <select required="required" class="form-control" >
+                                      <option value="0">Select Country</option>
+                                     <option value="pakistan">Pakistan</option>
+                                     <option value="usa">USA</option>
+                                 </select>
+                                </div>
+                              </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Setup Profile</button>
+                </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="Security-Setup-step">
+            <div class="col-xs-12">
+                <div class="col-md-12">
+                    <b>Thanks you  <stong id="name"></stong></b>
+                    <p>We are almost done, please enter the following information so we can recover your account in case you ever forget your password.</p>
+                    
+                    <div class="form-horizontal">
+                        <form  role="form">
+                            <fieldset>
+                              <br/>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-holder-name">Security Question 1:</label>
+                                <div class="col-sm-9">
+                                  <select required="required" class="form-control" >
+                                      <option value="0">Select Country</option>
+                                     <option value="india">INDIA</option>
+                                     <option value="pakistan">Pakistan</option>
+                                     <option value="usa">USA</option>
+                                 </select>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-number">Your Answer:</label>
+                                <div class="col-sm-9">
+                                 <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Name" />
+                                </div>
+                              </div>
+                              <br/>
+                              <hr>
+                              <br/>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-holder-name">Security Question 2:</label>
+                                <div class="col-sm-9">
+                                  <select required="required" class="form-control" >
+                                      <option value="0">Select Country</option>
+                                     <option value="pakistan">Pakistan</option>
+                                     <option value="usa">USA</option>
+                                 </select>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-number">Your Answer:</label>
+                                <div class="col-sm-9">
+                                 <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Name" />
+                                </div>
+                              </div>
+                               <br/>
+                              <hr>
+                              <br/>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-holder-name">Security Question 3:</label>
+                                <div class="col-sm-9">
+                                  <select required="required" class="form-control" >
+                                      <option value="0">Select Country</option>
+                                     <option value="pakistan">Pakistan</option>
+                                     <option value="india">INDIA</option>
+                                     <option value="usa">USA</option>
+                                 </select>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-number">Your Answer:</label>
+                                <div class="col-sm-9">
+                                 <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Name" />
+                                </div>
+                              </div>
+                               <br/>
+                              <hr>
+                              <br/>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label" for="card-number">Recover cellphone Number:</label>
+                                <div class="col-sm-9">
+                                 <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Cellphone Number" />
+                                 <p>Optional: We may send you a recovery code on this phone number if you are ever unable to lgoin to your account.</p>
+                                </div>
+                                
+                              </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!--h3> You are all set!</h3>
+                    <p>Welcome to MetroPago. We are glade to have you here.</p-->
+                    <button class="btn btn-primary btn-lg pull-right nextBtn" type="submit">Complete Registration</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div> 
 </body>
-<script src="./payment.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
-    let urldata=JSON.parse(localStorage.getItem(""))
-    let url=`https://upset-red-outfit.cyclic.app/Products`
-fetchdata(url)
-function fetchdata(url) {
-    async function fetchdata(){
-        let res= await fetch(url)
-        let data=await res.json()
-        console.log(data)
-        
-       let readydata=data.map((acc,item)=>{
-            return{
-                id:acc.id,
-                title:acc.name,
-                image:acc.images[0],
-                price:acc.price,
-                catagory:acc.tags[1]||acc.tags[0],
-                mrp:acc.price_max,
-                bander:acc.vendor
+    let name=document.getElementById("name")
+    let form=document.getElementById("form");
+    form.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        name.innerText=form.name.value;
+    })
+    $(document).ready(function () {
 
+var navListItems = $('div.setup-panel div a'),
+        allWells = $('.setup-content'),
+        allNextBtn = $('.nextBtn');
 
-            }
-        })
-        let womendata=readydata.filter((women,i)=>{
-            if((women.catagory.includes("women")||women.catagory.includes("Women")||women.catagory.includes("WOMEN"))){
-                return true
-            }
-            if(women.bander=="Koovs"){
-                return women.bander="COOL CLOTH"
-            }
-           
-        })
-        let womendata1=readydata.filter((women,i)=>{
-            
-            if(women.bander=="Koovs"){
-                return women.bander="COOL CLOTH"
-            }
-           
-        })
-        // console.log(womendata)
-        display(womendata)
-        console.log(womendata1)
-    
+allWells.hide();
+
+navListItems.click(function (e) {
+    e.preventDefault();
+    var $target = $($(this).attr('href')),
+        $item = $(this);
+    if (!$item.hasClass('disabled')) {        
+        //navListItems.removeClass('btn-primary').addClass('btn-default');
+        if($item.attr('id')!=$(navListItems[1]).attr('id'))
+        {
+            $(navListItems[1]).removeClass('btn-primary').addClass('btn-success');
+        }
+        //$('#item3').addClass('btn-success');
+        $item.addClass('btn-primary');
+        allWells.hide();
+        $target.show();
+        $target.find('input:eq(0)').focus();
     }
-    
-    fetchdata()
-}
-function display(data){
-    container.innerHTML=""
-    data.forEach((pro) => {
-        let card=document.createElement("div")
-        let disdiv=document.createElement("div")
-        disdiv.setAttribute("class","disdiv")
-        let img=document.createElement("img")
-        img.setAttribute("src",pro.image);
-        img.setAttribute("id",pro.id);
-        let bander=document.createElement("span")
-        bander.innerText=pro.bander
-        let title=document.createElement("span")
-        title.innerText=pro.title
-        let price=document.createElement("span")
-        price.innerText="Rs."+" "+pro.price
-        title.setAttribute("id",pro.id);
-        bander.setAttribute("id",pro.id);
-        price.setAttribute("id",pro.id);
-        disdiv.append(bander,title,price)
-        card.append(img,disdiv)
-        container.append(card)
-    });
-}
+});
+
+allNextBtn.click(function(){
+    var curStep = $(this).closest(".setup-content"),
+        curStepBtn = curStep.attr("id"),
+        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+        curInputs = curStep.find("input[type='text'],input[type='url'], input[type='password'], input[type='email']"),
+        isValid = true;
+
+    $(".form-group").removeClass("has-error");
+    for(var i=0; i<curInputs.length; i++){
+        if (!curInputs[i].validity.valid){
+            isValid = false;
+            $(curInputs[i]).closest(".form-group").addClass("has-error");
+        }
+    }
+
+    if (isValid)
+        nextStepWizard.removeAttr('disabled').trigger('click');
+});
+
+$('div.setup-panel div a.btn-primary').trigger('click');
+});
 </script>
 
 </html>
