@@ -159,13 +159,13 @@ addcart.addEventListener("click",(e)=>{
 window.location.reload()
    
         if(myset.has(localStorageid)){
-            alert("nhi ho payega")
+            alert("product already exist in cart")
         }else{
              idarray.push(localStorageid)
             localStorage.setItem("idarray", JSON.stringify
             (idarray));
-            window.location.href="./cart.html"
-            alert("jakr payment kar")
+            window.location.href="./cart_page.html"
+            alert("added successfully product")
         }
     
     

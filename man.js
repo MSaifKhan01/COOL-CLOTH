@@ -24,6 +24,7 @@ function fetchdata(url, page = 1) {
           image: acc.featured_image,
           price: acc.price,
           catagory: acc.tags[1] || acc.tags[0],
+          // catagory: acc.tags.item,
           mrp: acc.price_max,
           bander:acc.vendor,
           type:acc.type,

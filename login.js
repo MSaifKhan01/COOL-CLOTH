@@ -19,7 +19,8 @@ Login.addEventListener("submit",(e)=>{
         if(temp.password!=Login.password1.value){
             alert("Wrong Password")
         }else{
-            alert("Login Succesful")
+            alert("Login Successful")
+            window.location.assign("./index.html")
         }
         
     }

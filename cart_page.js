@@ -4,6 +4,17 @@ let container = document.querySelector(".cart")
 let idarray=JSON.parse(localStorage.getItem("idarray"))||[]
 let url=JSON.parse(localStorage.getItem("url"))||[]
 let total=document.getElementById("total")
+let cart_count=document.getElementById("count")
+cart_count.innerText=idarray.length
+
+let payment=document.getElementById("pay")
+payment.addEventListener("click",()=>{
+    if(idarray.length>=1){
+        window.location.href="./payment.html"
+    }else{
+        window.location.href="./cart_page.html"
+    }
+})
     // console.log(idarray)
     idarray.forEach((ele)=>{
         fetchdata()
@@ -67,29 +78,33 @@ let total=document.getElementById("total")
                             displaydata(AfterRemove);
                         })
                         increment.addEventListener("click",()=>{
+                            total.innerText=" ₹ "+(sum+2000);
                             quantity.innerText++;
+                            
                             // localStorage.setItem("cart",JSON.stringify(data))
                             // displaydata(data);
                         })
                         decrement.addEventListener("click",()=>{
                             if(quantity.innerText>1)
                             quantity.innerText--;
+
+                            total.innerText=" ₹ "+(sum-20445);
                             // localStorage.setItem("cart",JSON.stringify(data))
                             // displaydata(data);
                         })
-        
+                        var sum=0
+                        for(let i=0;i<readydata.length;i++){
+                        sum+=Number(readydata[i].price)*quantity.innerText
+                        console.log(sum)
+            
+                        total.innerText=" ₹ "+sum;
+                        }
         
                         allbtn.append(decrement,quantity,increment,remove)
                         card.append(img,name,price,allbtn);
                         container.append(card);
                     })
-                    let sum=0
-                    for(let i=0;i<readydata.length;i++){
-                    sum+=Number(readydata[i].price)*quantity.innerText
-                    console.log(sum)
-        
-                    total.innerText=" ₹ "+sum;
-                    }
+                   
             }
         }
 

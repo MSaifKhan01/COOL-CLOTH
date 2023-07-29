@@ -173,7 +173,7 @@ div.col-2{
                         </div>
                       </div>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">PLACE ORDER</button>
+                <button type="submit"  id="payment1" class="btn btn-primary mt-3">PLACE ORDER</button>
             </form>
         </div>
         </div>
@@ -192,7 +192,7 @@ div.col-2{
                     <label for="">Area Pin Code</label>
                     <input type="number" placeholder="Enter Area Pin Code" required >
                     
-                    <input type="submit" value="submit">
+                   
     
     
                 </form>
@@ -203,79 +203,85 @@ div.col-2{
        
     </div>
 </body>
-<script src="./payment.js"></script>
+<!-- <script src="./payment.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script> -->
 <script>
-    let urldata=JSON.parse(localStorage.getItem(""))
-    let url=`https://upset-red-outfit.cyclic.app/Products`
-fetchdata(url)
-function fetchdata(url) {
-    async function fetchdata(){
-        let res= await fetch(url)
-        let data=await res.json()
-        console.log(data)
+//     let urldata=JSON.parse(localStorage.getItem(""))
+//     let url=`https://upset-red-outfit.cyclic.app/Products`
+// fetchdata(url)
+// function fetchdata(url) {
+//     async function fetchdata(){
+//         let res= await fetch(url)
+//         let data=await res.json()
+//         console.log(data)
         
-       let readydata=data.map((acc,item)=>{
-            return{
-                id:acc.id,
-                title:acc.name,
-                image:acc.images[0],
-                price:acc.price,
-                catagory:acc.tags[1]||acc.tags[0],
-                mrp:acc.price_max,
-                bander:acc.vendor
+//        let readydata=data.map((acc,item)=>{
+//             return{
+//                 id:acc.id,
+//                 title:acc.name,
+//                 image:acc.images[0],
+//                 price:acc.price,
+//                 catagory:acc.tags[1]||acc.tags[0],
+//                 mrp:acc.price_max,
+//                 bander:acc.vendor
 
 
-            }
-        })
-        let womendata=readydata.filter((women,i)=>{
-            if((women.catagory.includes("women")||women.catagory.includes("Women")||women.catagory.includes("WOMEN"))){
-                return true
-            }
-            if(women.bander=="Koovs"){
-                return women.bander="COOL CLOTH"
-            }
+//             }
+//         })
+//         let womendata=readydata.filter((women,i)=>{
+//             if((women.catagory.includes("women")||women.catagory.includes("Women")||women.catagory.includes("WOMEN"))){
+//                 return true
+//             }
+//             if(women.bander=="Koovs"){
+//                 return women.bander="COOL CLOTH"
+//             }
            
-        })
-        let womendata1=readydata.filter((women,i)=>{
+//         })
+//         let womendata1=readydata.filter((women,i)=>{
             
-            if(women.bander=="Koovs"){
-                return women.bander="COOL CLOTH"
-            }
+//             if(women.bander=="Koovs"){
+//                 return women.bander="COOL CLOTH"
+//             }
            
-        })
-        // console.log(womendata)
-        display(womendata)
-        console.log(womendata1)
+//         })
+//         // console.log(womendata)
+//         display(womendata)
+//         console.log(womendata1)
     
-    }
+//     }
     
-    fetchdata()
-}
-function display(data){
-    container.innerHTML=""
-    data.forEach((pro) => {
-        let card=document.createElement("div")
-        let disdiv=document.createElement("div")
-        disdiv.setAttribute("class","disdiv")
-        let img=document.createElement("img")
-        img.setAttribute("src",pro.image);
-        img.setAttribute("id",pro.id);
-        let bander=document.createElement("span")
-        bander.innerText=pro.bander
-        let title=document.createElement("span")
-        title.innerText=pro.title
-        let price=document.createElement("span")
-        price.innerText="Rs."+" "+pro.price
-        title.setAttribute("id",pro.id);
-        bander.setAttribute("id",pro.id);
-        price.setAttribute("id",pro.id);
-        disdiv.append(bander,title,price)
-        card.append(img,disdiv)
-        container.append(card)
-    });
-}
+//     fetchdata()
+// }
+// function display(data){
+//     container.innerHTML=""
+//     data.forEach((pro) => {
+//         let card=document.createElement("div")
+//         let disdiv=document.createElement("div")
+//         disdiv.setAttribute("class","disdiv")
+//         let img=document.createElement("img")
+//         img.setAttribute("src",pro.image);
+//         img.setAttribute("id",pro.id);
+//         let bander=document.createElement("span")
+//         bander.innerText=pro.bander
+//         let title=document.createElement("span")
+//         title.innerText=pro.title
+//         let price=document.createElement("span")
+//         price.innerText="Rs."+" "+pro.price
+//         title.setAttribute("id",pro.id);
+//         bander.setAttribute("id",pro.id);
+//         price.setAttribute("id",pro.id);
+//         disdiv.append(bander,title,price)
+//         card.append(img,disdiv)
+//         container.append(card)
+//     });
+// }
+
+let payment1=document.getElementById("payment1")
+payment1.addEventListener("click",()=>{
+    window.location.assign("./index.html")
+    alert("payment successful")
+})
 </script>
 
 </html>

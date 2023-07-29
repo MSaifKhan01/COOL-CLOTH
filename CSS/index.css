@@ -95,7 +95,7 @@
     justify-content:flex-end;
     padding:10px;
 }
-.nav-icons>img{
+.nav-icons>a img{
     padding-left:20px;
 }
 .search{
